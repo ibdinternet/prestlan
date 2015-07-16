@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e124da6debbd4a5aa7697b4dfc5c3694" Name="Diagram1" ZoomLevel="125">
+        <EntityTypeShape EntityType="Prestlan.Model.Actividad" Width="1.5" PointX="0.75" PointY="34.25" />
+        <EntityTypeShape EntityType="Prestlan.Model.Actividad_translation" Width="1.5" PointX="3" PointY="48.25" />
+        <EntityTypeShape EntityType="Prestlan.Model.Biblioteca" Width="1.5" PointX="0.75" PointY="6.625" />
+        <EntityTypeShape EntityType="Prestlan.Model.Empresa" Width="1.5" PointX="3" PointY="33" />
+        <EntityTypeShape EntityType="Prestlan.Model.Fichero" Width="1.5" PointX="0.75" PointY="9" />
+        <EntityTypeShape EntityType="Prestlan.Model.Idiomas" Width="1.5" PointX="5.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Prestlan.Model.Log" Width="1.5" PointX="7.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Prestlan.Model.MovimientosDeDocumento" Width="1.5" PointX="8.25" PointY="2.625" />
+        <EntityTypeShape EntityType="Prestlan.Model.Notificaciones" Width="1.5" PointX="10.5" PointY="2.875" />
+        <EntityTypeShape EntityType="Prestlan.Model.Propietario" Width="1.5" PointX="5.25" PointY="3.125" />
+        <EntityTypeShape EntityType="Prestlan.Model.Reclamaciones" Width="1.5" PointX="2.75" PointY="8.75" />
+        <EntityTypeShape EntityType="Prestlan.Model.Requisitos" Width="1.5" PointX="1.5" PointY="25.875" />
+        <EntityTypeShape EntityType="Prestlan.Model.TipoDocumento" Width="1.5" PointX="0.75" PointY="22.625" />
+        <EntityTypeShape EntityType="Prestlan.Model.TipoDocumento_translation" Width="1.5" PointX="3" PointY="12.5" />
+        <EntityTypeShape EntityType="Prestlan.Model.TipoEmpresa" Width="1.5" PointX="0.75" PointY="31.625" />
+        <EntityTypeShape EntityType="Prestlan.Model.TipoEmpresa_translation" Width="1.5" PointX="3" PointY="22.625" />
+        <EntityTypeShape EntityType="Prestlan.Model.TipoEstado" Width="1.5" PointX="0.75" PointY="3.375" />
+        <EntityTypeShape EntityType="Prestlan.Model.TipoEtapa" Width="1.5" PointX="0.75" PointY="28.5" />
+        <EntityTypeShape EntityType="Prestlan.Model.TipoIdentificador" Width="1.5" PointX="0.75" PointY="37" />
+        <EntityTypeShape EntityType="Prestlan.Model.Tipoidentificador_translation" Width="1.5" PointX="3" PointY="30" />
+        <EntityTypeShape EntityType="Prestlan.Model.TipoTrabajador" Width="1.5" PointX="0.75" PointY="40.875" />
+        <EntityTypeShape EntityType="Prestlan.Model.TipoTrabajador_translation" Width="1.5" PointX="3" PointY="44.875" />
+        <EntityTypeShape EntityType="Prestlan.Model.Trabajador" Width="1.5" PointX="3" PointY="39.625" />
+        <EntityTypeShape EntityType="Prestlan.Model.Usuario" Width="1.5" PointX="0.75" PointY="11.5" />
+        <AssociationConnector Association="Prestlan.Model.FK_Actividad_translation_Actividad" />
+        <AssociationConnector Association="Prestlan.Model.FK_ActividadEmpresa" />
+        <AssociationConnector Association="Prestlan.Model.FK_EmpresaPropietario" />
+        <AssociationConnector Association="Prestlan.Model.FK_EmpresaTrabajador" />
+        <AssociationConnector Association="Prestlan.Model.FK_TipoEmpresaEmpresa" />
+        <AssociationConnector Association="Prestlan.Model.FK_TipoIdentificadorEmpresa" />
+        <AssociationConnector Association="Prestlan.Model.FK_MovimientosDeDocumentoNotificaciones" />
+        <AssociationConnector Association="Prestlan.Model.FK_TipoEstadoMovimientosDeDocumento" />
+        <AssociationConnector Association="Prestlan.Model.FK_TipoEtapaMovimientosDeDocumento" />
+        <AssociationConnector Association="Prestlan.Model.FK_UsuarioMovimientosDeDocumento" />
+        <AssociationConnector Association="Prestlan.Model.FK_TrabajadorPropietario" />
+        <AssociationConnector Association="Prestlan.Model.FK_TipoDocumento_translation_TipoDocumento" />
+        <AssociationConnector Association="Prestlan.Model.FK_TipoEmpresa_translation_TipoEmpresa" />
+        <AssociationConnector Association="Prestlan.Model.FK_Tipoidentificador_translation_TipoIdentificador" />
+        <AssociationConnector Association="Prestlan.Model.FK_TipoIdentificadorTrabajador" />
+        <AssociationConnector Association="Prestlan.Model.FK_TipoTrabajador_translation_TipoTrabajador" />
+        <AssociationConnector Association="Prestlan.Model.FK_TipoTrabajadorTrabajador" />
+        <AssociationConnector Association="Prestlan.Model.ActividadTrabajador" />
+        <AssociationConnector Association="Prestlan.Model.RequisitosTipoDocumento" />
+        <EntityTypeShape EntityType="Prestlan.Model.Documento" Width="2.125" PointX="6" PointY="11.75" />
+        <AssociationConnector Association="Prestlan.Model.FK_Documento_Documento" />
+        <AssociationConnector Association="Prestlan.Model.FK_DocumentoFichero" />
+        <AssociationConnector Association="Prestlan.Model.FK_DocumentoMovimientosDeDocumento" />
+        <AssociationConnector Association="Prestlan.Model.FK_TipoDocumentoDocumento" />
+        <AssociationConnector Association="Prestlan.Model.FK_TipoEstadoDocumento" />
+        <AssociationConnector Association="Prestlan.Model.FK_TipoEtapaDocumento" />
+        <AssociationConnector Association="Prestlan.Model.FK_UsuarioDocumento" />
+        <AssociationConnector Association="Prestlan.Model.BibliotecaDocumento" />
+        <AssociationConnector Association="Prestlan.Model.PropietarioDocumento" />
+        <EntityTypeShape EntityType="Prestlan.Model.Permiso" Width="1.5" PointX="0.75" PointY="19.375" />
+        <EntityTypeShape EntityType="Prestlan.Model.Rol" Width="1.5" PointX="0.75" PointY="16.25" />
+        <AssociationConnector Association="Prestlan.Model.FK_UsuarioRol" />
+        <AssociationConnector Association="Prestlan.Model.RolPermiso" />
+        <EntityTypeShape EntityType="Prestlan.Model.Configuracion" Width="1.5" PointX="10.375" PointY="6.75" />
+        <AssociationConnector Association="Prestlan.Model.FK_Usuario_Empresa" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

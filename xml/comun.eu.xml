@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xml> 
+  <!-- Inicio LOGIN -->
+  <textobienvenido>Ongi etorri PRESTLAN aplikaziora. IBD Internet-ek sortutako software honek "Enpresa"-rako azpikontratatzaileen enpresa-jarduera kudeaketa ahalbidetzen du. Sartu zure erabiltzaile eta pasahitza. Sartzeko arazoak baldin badituzu, gurekin harremanetan jarri mesedez. Tel: 943376085</textobienvenido>
+  <recordarcontraseña>Hurengo batean gogoratu.</recordarcontraseña>
+  <entrar>Sartu</entrar>
+  <!-- Buscar Documentos parte superior -->
+  <buscardocumentos>Dokumentuak bilatu</buscardocumentos>
+  <empleados>Langileak</empleados>
+  <seleccioneempleados>Langileak aukeratu</seleccioneempleados>
+  <actividad>Aktibitatea</actividad>
+  <seleccioneactividades>Aktibitatea aukeratu</seleccioneactividades>
+  <empresa>Enpresa</empresa>
+  <seleccioneempresas>Enpresa aukeratu</seleccioneempresas>
+  <tipodocumento>Dokumentu mota</tipodocumento>
+  <seleccionetiposdocumentos>Dokumentu mota aukeratu</seleccionetiposdocumentos>
+  <seleccioneestado>Seleccione estado</seleccioneestado>
+  <buscar>Bilatu</buscar>
+  <cerrar>Itxi</cerrar>
+  <!-- Notificaciones parte superior -->
+  <notificaciones>Abisuak</notificaciones>
+  <eldocumentoxcaducaraenydias>"{0}" dokumentua {1} egun barru iraungiko da</eldocumentoxcaducaraenydias>
+  <eldocumentoxcaducado>"{0} documentua iraungitu da</eldocumentoxcaducado>
+  <!-- Pagina de ayuda parte superior-->
+  <paginaayuda>Laguntza orria</paginaayuda>
+  <!-- Configuracion parte superior-->
+  <configuracion>Konfigurazioa</configuracion>
+  <!-- Usuario parte superior -->
+  <usuario>Erabiltzaile</usuario>
+  <versionaplicacion>Aplikazioaren bertsioa</versionaplicacion>
+  <nombreyapellido>Izena eta Abizena</nombreyapellido>
+  <contraseña>Pasahitz</contraseña>
+  <repetircontraseña>Pasahitza errepikatu</repetircontraseña>
+  <email>Emaila</email>
+  <idiomaaplicacion>Aplikazioaren hizkuntza</idiomaaplicacion>  
+  <guardar>Gorde</guardar>
+  <cancelar>Ezeztatu</cancelar>  
+  <!-- Menu lateral izquierdo (el texto se pone en mayusculas mediante css)-->
+  <documentos>Dokumentuak</documentos>
+  <trabajadores>Langileak</trabajadores>
+  <subcontratas>Azpikontratazioak</subcontratas>
+  <empresas>Enpresak</empresas>
+  <homologaciones>Homologazioak</homologaciones>
+  <requisitos>Baldintzak</requisitos>
+  <validaciones>Balioztatzeak</validaciones>
+  <reclamaciones>Erreklamazioak</reclamaciones>
+  <administracion>Administrazioa</administracion>
+  <identificar>Identifikatu</identificar>
+  <trabajador>Langile</trabajador>
+  <usuarios>Erabiltzaileak</usuarios>
+  <permisos>Baimenak</permisos>
+  <añadir>Gehitu</añadir>
+  <listar>Zerrendatu</listar>
+  <!-- Documentos añadir -->
+  <añadirdocumentos>Dokumentuak gehitu</añadirdocumentos>
+  <titulo>Tituloa</titulo>
+  <descripcion>Deskribapena</descripcion>
+  <tipodedocumento>Dokumentu mota</tipodedocumento>
+  <propiedad>Jabetasuna</propiedad>
+  <empleado>Langilea</empleado>
+  <empresa>Enpresa</empresa>
+  <seleccioneelemento>Elementua aukeratu</seleccioneelemento>
+  <asignacion>Izendatzea</asignacion>
+  <seleccionepropietarios>Jabea(k) aukeratu</seleccionepropietarios>
+  <caducidad>Iraungitze-data</caducidad>
+  <si>Bai</si>
+  <subirdocumento>Dokumentua igo</subirdocumento>
+  <documentoactual>Gaur egungo dokumentua</documentoactual>
+  <verdocumento>Ver documento</verdocumento>
+  <ficheronomodificado>El fichero no se ha modificado</ficheronomodificado>
+  <!-- validaciones Documentos añadir -->
+  <!-- generico -->
+  <debeintroducirunvalor>Beharrezkoa da datua sartzea</debeintroducirunvalor>
+  <!-- especifico cada campo -->
+  <camporequerido_titulo>El titulo es obligatorio</camporequerido_titulo>
+  <camporequerido_descripcion>La descripción es obligatoria</camporequerido_descripcion>
+  <camporequerido_fichero>Seleccionar un fichero es obligatorio</camporequerido_fichero>
+  <camporequerido_propiedad>La propiedad es obligatoria</camporequerido_propiedad>
+  <camporequerido_tipodocumento>El tipo de documento es obligatorio</camporequerido_tipodocumento>
+  <!-- mensajes alert, ok, etc... -->
+  <soloficherosextension>Solo se aceptan ficheros con la extensión: .doc, .docx, .gif, .png, .jpg, .pdf y .txt</soloficherosextension>
+  <documentoinsertok>El documento se ha creado correctamente</documentoinsertok>
+  <documentoeditok>El documento se ha modificado correctamente</documentoeditok>
+  <!-- Listar Documentos -->
+  <listardocumentos>Dokumentuak zerrendatu</listardocumentos>
+  <fechaascendente>Goranzko data</fechaascendente>
+  <fechadescendente>Beheranzko data</fechadescendente>
+  <caducidadascendente>Goranzko iraungitze-data</caducidadascendente>
+  <caducidaddescendente>Beheranzko iraungitze-data</caducidaddescendente>
+  <propietarioascendente>Gonranzko jabetasuna</propietarioascendente>
+  <propietariodescendente>Beheranzko jabetasuna</propietariodescendente>
+  <versiones>Bertsioak</versiones>
+  <caducidad>Iraungitze-data</caducidad>
+  <fechacreado>Sortze-data</fechacreado>
+  <subidopor>Nork igo du</subidopor>
+  <version>Bertsioa</version>
+  <estado>Egoera</estado>
+  <etapa>Etapa</etapa>
+  <pasararevision>Errebisio egoerara pasa</pasararevision>
+  <eliminarborrador>Zirriborroa ezabatu</eliminarborrador>
+  <pasaraborrador>Zirriborro egoerara pasa</pasaraborrador>
+  <editar>Editatu</editar>
+  <!-- Trabajadores Añadir -->
+  <añadirtrabajador>Langilea gehitu</añadirtrabajador>
+  <autonomo>Autonomoa</autonomo>
+  <identidad>Identitatea</identidad>
+  <nombrecompleto>Izen osoa</nombrecompleto>
+  <actividades>Aktibitateak</actividades>
+  <seleccioneactividad>Aktibitatea aukeratu</seleccioneactividad>
+  <seleccioneactividades>Aktibitateak aukeratu</seleccioneactividades>
+  <observaciones>Oharrak</observaciones>
+  <!-- Validaciones trabajadores añadir -->
+  <camporequerido_empresa>La empresa es obligatoria</camporequerido_empresa>
+  <camporequerido_tipoidentificador>El tipo de identificador es obligatorio</camporequerido_tipoidentificador>
+  <camporequerido_identificador>El identificador es obligatorio</camporequerido_identificador>
+  <camporequerido_nombre>El nombre es obligatorio</camporequerido_nombre>
+  <camporequerido_actividad>La actividad es obligatoria</camporequerido_actividad>
+  <!-- mensajes alert, ok, etc... -->
+  <trabajadorinsertok>El trabajador se ha creado correctamente</trabajadorinsertok>
+  <trabajadoreditok>El trabajador se ha modificado correctamente</trabajadoreditok>
+  <!-- Trabajadores Listar -->
+  <listartrabajador>Langileak zerrendatu</listartrabajador>
+  <nombre>Izena</nombre>
+  <docidentidad>Nortasun agiria</docidentidad>
+  <activo>Aktibo</activo>
+  <fecha>Data</fecha>
+  <!-- Subcontratas Añadir -->
+  <añadirsubcontrata>Azpikontrata gehitu</añadirsubcontrata>
+  <identificador>Identifikadore</identificador>
+  <direccion>Helbidea</direccion>
+  <correosnotificaciones>Abisurako emaila</correosnotificaciones>
+  <enviarnotificaciones>¿Abisuak bidali?</enviarnotificaciones>
+  <tipodeempresa>Enpresa mota</tipodeempresa>
+  <!-- Validaciones empresas/subcontratas añadir -->
+  <camporequerido_direccion>La dirección es obligatoria</camporequerido_direccion>
+  <camporequerido_tipoempresa>El tipo de empresa es obligatorio</camporequerido_tipoempresa>
+  <camporequerido_identificador>El identificador es obligatorio</camporequerido_identificador>
+  <!-- mensajes alert, ok, etc... -->
+  <empresainsertok>La empresa se ha creado correctamente</empresainsertok>
+  <empresaeditok>La empresa se ha modificado correctamente</empresaeditok>
+  <!-- Subcontratas Listar-->
+  <listarsubcontrata>Azpikontratak zerrendatu</listarsubcontrata>
+  <activa>Aktibo?</activa>
+  <fechadealta>Alta data</fechadealta>
+  <fechadebaja>Baja data</fechadebaja>
+  <alerteliminarempresatrabajador>No se puede eliminar la empresa por que tiene trabajadores</alerteliminarempresatrabajador>
+  <alerteliminarempresadocumento>No se puede eliminar la empresa por que tiene documentos</alerteliminarempresadocumento>
+  <!-- Homologaciones Añadir -->
+  <añadirhomologacion>Homologazioa gehitu</añadirhomologacion>
+  <!-- Homologaciones Listar -->
+  <listarhomologacion>Homologazioa zerrendatu</listarhomologacion>
+  <!-- Requisitos Añadir -->
+  <añadirrequisitos>Baldintzak gehitu</añadirrequisitos>
+  <tiposdocumentosrequeridos>Beharrezko dokumentu motak</tiposdocumentosrequeridos>
+  <!-- Requisitos Listar -->
+  <listarrequisitos>Dokumentuak zerrendatu</listarrequisitos>
+  <!-- Validaciones -->
+  <creador>Sortzaile</creador>
+  <revisor>Errebisatzaile</revisor>
+  <rechazar>Errefusatu</rechazar>
+  <validar>Balioztatu</validar>
+  <!-- Reclamaciones -->
+  <motivoreclamacion>Erreklamazioaren zergatia</motivoreclamacion>
+  <!-- Administracion Documentos -->
+  <tiposdedocumentos>Dokumentu mota</tiposdedocumentos>
+  <textodeayuda>Laguntza testua</textodeayuda>
+  <plantilla>Plantila</plantilla>
+  <multiplespropietarios>¿Jabetza multiplea?</multiplespropietarios>
+  <nivelcriticidad>Kritikotasun maila</nivelcriticidad>  
+  <!-- Administracion Identificador-->
+  <tiposdeidentificadores>Indetifikadore mailak</tiposdeidentificadores>
+  <!-- Administracion Trabajador -->
+  <tiposdetrabajadores>Langile motak</tiposdetrabajadores>
+  <!-- Administracion Usuarios -->
+  <gestiondeusuarios>Erabiltzaile kudeaketa</gestiondeusuarios>
+  <nombredeusuario>Erabiltzaile izena</nombredeusuario>
+  <rol>Rola</rol>
+  <ultimologin>Azken logina</ultimologin>
+  <!-- Administracion permisos -->
+  <nivelseguridadnopermiterealizaroperacion>Sentitzen dugu: Zure erabiltzailearen egurtasun mailak ez du onartzen egindako eragiketa.</nivelseguridadnopermiterealizaroperacion>
+  <!-- Paginacion -->
+  <anterior>Aurrekoa</anterior>
+  <siguiente>Hurrengoa</siguiente>
+  <insertarnuevo>Berria sartu</insertarnuevo>
+  <!-- Emails -->
+  <emaildocumentopendientevalidar>PRESTLAN aplikazioak jakinarazten du {0} erabiltzaileak {1} dokumentua bidali duela bere berrikuspena egin dadin.</emaildocumentopendientevalidar>
+  <asuntoemaildocumentopendientevalidar>PRESTLAN: Dokumentua balioztatzeke</asuntoemaildocumentopendientevalidar>
+  <emaildocumentorechazado>PRESTLAN-ek jakinarazten du {0} erabiltzaileak {1} dokumentua errefusatu duela</emaildocumentorechazado>
+  <asuntoemaildocumentorechazado>PRESTLAN: Documentua errefusatua</asuntoemaildocumentorechazado>
+
+  <!-- Traducciones pendientes -->
+  <gestiondepermisos>Gestión de permisos</gestiondepermisos>
+  <estasegurousuario>¿Está seguro de que quiere eliminar este usuario?</estasegurousuario>
+  <estasegurodocumento>¿Está seguro de que quiere eliminar este tipo de documento?</estasegurodocumento>
+  <estaseguroidentificador>¿Está seguro de que quiere eliminar este tipo de identificador?</estaseguroidentificador>
+  <estasegurotrabajador>¿Está seguro de que quiere eliminar este tipo de trabajador?</estasegurotrabajador>
+  <estaseguroempresa>¿Está seguro de que quiere eliminar esta empresa?</estaseguroempresa>
+  <erroroperacion>Error en la operación</erroroperacion>
+  <erroremail>Error: el email especificado ya está en uso</erroremail>
+  <okoperacion>Operación completada correctamente</okoperacion>
+  <docrechazado>El documento ha sido rechazado</docrechazado>
+  <docvalidado>El documento ha sido validado</docvalidado>
+  <reclenviadaok>Reclamación enviada correctamente</reclenviadaok>
+  <reclenviadanook>Se produjo un error al enviar la reclamación</reclenviadanook>
+  <docborradoreliminado>El documento borrador se ha eliminado</docborradoreliminado>
+  <docaborrador>El documento ha pasado a borrador</docaborrador>
+  <docavalidar>El documento ha pasado a validación</docavalidar>
+  <errordocnoexiste>ERROR: El documento especificado no existe</errordocnoexiste>
+  <errordoccaducado>ERROR: El documento especificado está caducado</errordoccaducado>
+  <errordocyacaducado>ERROR: El documento especificado ya está caducado</errordocyacaducado>
+  <errornofechacaducidad>ERROR: El documento no tiene fecha de caducidad</errornofechacaducidad>
+  <errornoenrevision>ERROR: El documento no se encuentra en la etapa adecuada: no está en revisión</errornoenrevision>
+  <errornoenborrador>ERROR: El documento no se encuentra en la etapa adecuada: no es un borrador</errornoenborrador>
+  <errornopublicado>ERROR: El documento no se encuentra en la etapa adecuada: no está publicado</errornopublicado>
+  <errordocnocaducado>ERROR: El documento aún no ha caducado</errordocnocaducado>
+  <errordocyavalidado>ERROR: El documento ya ha sido validado</errordocyavalidado>
+  <errornopermisos>ERROR: El usuario no tiene los permisos adecuados para efectuar la operación solicitada</errornopermisos>
+  <errordesconocido>ERROR: Error desconocido</errordesconocido>
+  <hayreclamacion>Hay una reclamación</hayreclamacion>
+  <propietario>Propietario</propietario>
+  <nosehanencontradodocs>No se han encontrado documentos que cumplan las condiciones especificadas</nosehanencontradodocs>
+  <tipodedocascendente>Tipo de documento ascendente</tipodedocascendente>
+  <tipodedocdescendente>Tipo de documento descendente</tipodedocdescendente>
+  <!-- ESTADOS -->
+  <BORRADOR>BORRADOR</BORRADOR>
+  <PUBLICADO>PUBLICADO</PUBLICADO>
+  <CADUCADO>CADUCADO</CADUCADO>
+  <!-- ETAPAS -->
+  <!-- <BORRADOR>BORRADOR</BORRADOR> (Ya esta en estado) -->
+  <REVISION>REVISIÓN</REVISION>
+  <RECHAZO>RECHAZO</RECHAZO>
+  <PUBLICACION>PUBLICACIÓN</PUBLICACION>
+  <CADUCAR>CADUCAR</CADUCAR>
+  <!-- Generar zip -->
+  <generarzip>Generar .zip</generarzip>
+  <soloficherosextension>Solo se aceptan ficheros con la extensión: .doc, .docx, .gif, .png, .jpg, .pdf y .txt</soloficherosextension>
+  <documentoinsertok>El documento se ha creado correctamente</documentoinsertok>
+  <documentoeditok>El documento se ha modificado correctamente</documentoeditok>
+  <ficheronomodificado>El fichero no se ha modificado</ficheronomodificado>
+  <ver>Ver</ver>
+</xml>
+

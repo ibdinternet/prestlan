@@ -1,0 +1,2268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Prestlan.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Actividad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion_null" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Actividad_translation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Actividad_Id" Type="int" Nullable="false" />
+          <Property Name="Idioma_codigo" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ActividadTrabajador">
+          <Key>
+            <PropertyRef Name="Actividad_Id" />
+            <PropertyRef Name="Trabajador_Id" />
+          </Key>
+          <Property Name="Actividad_Id" Type="int" Nullable="false" />
+          <Property Name="Trabajador_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Biblioteca">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BibliotecaDocumento">
+          <Key>
+            <PropertyRef Name="Biblioteca_Id" />
+            <PropertyRef Name="Documento_Id" />
+          </Key>
+          <Property Name="Biblioteca_Id" Type="int" Nullable="false" />
+          <Property Name="Documento_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Configuracion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="alerta_caducidad_1" Type="int" Nullable="false" />
+          <Property Name="alerta_caducidad_2" Type="int" Nullable="false" />
+          <Property Name="nombre_empresa" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="idioma_general" Type="char" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Documento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Titulo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Caduca" Type="bit" Nullable="false" />
+          <Property Name="FechaCaducidad" Type="datetime" />
+          <Property Name="SinPropietarios" Type="bit" Nullable="false" />
+          <Property Name="SinNotificaciones" Type="bit" Nullable="false" />
+          <Property Name="FechaCreado" Type="datetime" Nullable="false" />
+          <Property Name="FechaActualizado" Type="datetime" Nullable="false" />
+          <Property Name="Eliminado" Type="bit" Nullable="false" />
+          <Property Name="HashEmpleado" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Fichero_Id" Type="int" Nullable="false" />
+          <Property Name="DocumentoVersion_Id" Type="int" />
+          <Property Name="TipoDocumento_Id" Type="int" Nullable="false" />
+          <Property Name="Usuario_Id" Type="int" Nullable="false" />
+          <Property Name="Estado_Id" Type="int" Nullable="false" />
+          <Property Name="Etapa_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ValorIdentificador" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Direccion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Observaciones" Type="nvarchar(max)" />
+          <Property Name="CorreosNotificaciones" Type="nvarchar(max)" />
+          <Property Name="SinNotificaciones" Type="bit" Nullable="false" />
+          <Property Name="Activa" Type="bit" Nullable="false" />
+          <Property Name="FechaAlta" Type="date" Nullable="false" />
+          <Property Name="FechaBaja" Type="date" Nullable="false" />
+          <Property Name="Eliminado" Type="bit" Nullable="false" />
+          <Property Name="TipoIdentificador_Id" Type="int" Nullable="false" />
+          <Property Name="TipoEmpresa_Id" Type="int" Nullable="false" />
+          <Property Name="Actividad_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fichero">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FechaCreado" Type="datetime" Nullable="false" />
+          <Property Name="nombreFS" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Idiomas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="predeterminado" Type="bit" Nullable="false" />
+          <Property Name="codigo" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="cultura" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Thread" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Level" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Logger" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Message" Type="varchar" MaxLength="4000" Nullable="false" />
+          <Property Name="Exception" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="MovimientosDeDocumento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="fechaOperacion" Type="datetime" Nullable="false" />
+          <Property Name="Documento_Id" Type="int" Nullable="false" />
+          <Property Name="Usuario_Id" Type="int" Nullable="false" />
+          <Property Name="TipoEstado_Id" Type="int" Nullable="false" />
+          <Property Name="TipoEtapa_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notificaciones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="correoEmisor" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="correoDestinatario" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="asunto" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="contenido" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="envioCorreoExito" Type="bit" Nullable="false" />
+          <Property Name="fechaNotificacion" Type="datetime" Nullable="false" />
+          <Property Name="MovimientosDeDocumento_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Permiso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Propietario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Empresa_Id" Type="int" />
+          <Property Name="Trabajador_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="PropietarioDocumento">
+          <Key>
+            <PropertyRef Name="Documento_Id" />
+            <PropertyRef Name="Propietario_Id" />
+          </Key>
+          <Property Name="Documento_Id" Type="int" Nullable="false" />
+          <Property Name="Propietario_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reclamaciones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="correoEmisor" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="correoDestinatario" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="asunto" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="contenido" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="envioCorreoExito" Type="bit" Nullable="false" />
+          <Property Name="fechaReclamacion" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Requisitos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RequisitosTipoDocumento">
+          <Key>
+            <PropertyRef Name="Requisitos_Id" />
+            <PropertyRef Name="TipoDocumento_Id" />
+          </Key>
+          <Property Name="Requisitos_Id" Type="int" Nullable="false" />
+          <Property Name="TipoDocumento_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RolPermiso">
+          <Key>
+            <PropertyRef Name="Permiso_Id" />
+            <PropertyRef Name="Rol_Id" />
+          </Key>
+          <Property Name="Permiso_Id" Type="int" Nullable="false" />
+          <Property Name="Rol_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoDocumento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MultiplesPropietarios" Type="bit" Nullable="false" />
+          <Property Name="NivelCriticidad" Type="int" Nullable="false" />
+          <Property Name="EsDocumentoDeEmpresa" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoDocumento_translation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipodocumento_Id" Type="int" Nullable="false" />
+          <Property Name="Idioma_codigo" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TextoAyuda" Type="nvarchar(max)" />
+          <Property Name="Plantilla" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TipoEmpresa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="EsEmpresaPrincipal" Type="bit" />
+        </EntityType>
+        <EntityType Name="TipoEmpresa_translation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipoempresa_Id" Type="int" Nullable="false" />
+          <Property Name="Idioma_codigo" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoEstado">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoEtapa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoIdentificador">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion_null" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Tipoidentificador_translation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipoidentificador_Id" Type="int" Nullable="false" />
+          <Property Name="Idioma_codigo" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoTrabajador">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoTrabajador_translation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoTrabajador_Id" Type="int" Nullable="false" />
+          <Property Name="Idioma_codigo" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Trabajador">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ValorIdentificador" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="FechaAlta" Type="date" Nullable="false" />
+          <Property Name="FechaBaja" Type="date" Nullable="false" />
+          <Property Name="Eliminado" Type="bit" Nullable="false" />
+          <Property Name="TipoIdentificador_Id" Type="int" Nullable="false" />
+          <Property Name="Empresa_Id" Type="int" Nullable="false" />
+          <Property Name="TipoTrabajador_Id" Type="int" Nullable="false" />
+          <Property Name="Autonomo" Type="bit" Nullable="false" />
+          <Property Name="Observaciones" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="clave" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="fechaAlta" Type="datetime" Nullable="false" />
+          <Property Name="fechaBaja" Type="datetime" />
+          <Property Name="ultimoLogin" Type="datetime" />
+          <Property Name="Rol_Id" Type="int" Nullable="false" />
+          <Property Name="ip" Type="nchar" MaxLength="50" />
+          <Property Name="idioma" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="Empresa_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Actividad_translation_Actividad">
+          <End Role="Actividad" Type="Self.Actividad" Multiplicity="1" />
+          <End Role="Actividad_translation" Type="Self.Actividad_translation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actividad">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Actividad_translation">
+              <PropertyRef Name="Actividad_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActividadEmpresa">
+          <End Role="Actividad" Type="Self.Actividad" Multiplicity="1" />
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actividad">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Empresa">
+              <PropertyRef Name="Actividad_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActividadTrabajador_Actividad">
+          <End Role="Actividad" Type="Self.Actividad" Multiplicity="1" />
+          <End Role="ActividadTrabajador" Type="Self.ActividadTrabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actividad">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActividadTrabajador">
+              <PropertyRef Name="Actividad_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActividadTrabajador_Trabajador">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1" />
+          <End Role="ActividadTrabajador" Type="Self.ActividadTrabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActividadTrabajador">
+              <PropertyRef Name="Trabajador_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BibliotecaDocumento_Biblioteca">
+          <End Role="Biblioteca" Type="Self.Biblioteca" Multiplicity="1" />
+          <End Role="BibliotecaDocumento" Type="Self.BibliotecaDocumento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Biblioteca">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BibliotecaDocumento">
+              <PropertyRef Name="Biblioteca_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BibliotecaDocumento_Documento">
+          <End Role="Documento" Type="Self.Documento" Multiplicity="1" />
+          <End Role="BibliotecaDocumento" Type="Self.BibliotecaDocumento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BibliotecaDocumento">
+              <PropertyRef Name="Documento_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Documento_Documento">
+          <End Role="Documento" Type="Self.Documento" Multiplicity="0..1" />
+          <End Role="Documento1" Type="Self.Documento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Documento1">
+              <PropertyRef Name="DocumentoVersion_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DocumentoFichero">
+          <End Role="Fichero" Type="Self.Fichero" Multiplicity="1" />
+          <End Role="Documento" Type="Self.Documento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fichero">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Documento">
+              <PropertyRef Name="Fichero_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DocumentoMovimientosDeDocumento">
+          <End Role="Documento" Type="Self.Documento" Multiplicity="1" />
+          <End Role="MovimientosDeDocumento" Type="Self.MovimientosDeDocumento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MovimientosDeDocumento">
+              <PropertyRef Name="Documento_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpresaPropietario">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+          <End Role="Propietario" Type="Self.Propietario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Propietario">
+              <PropertyRef Name="Empresa_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpresaTrabajador">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Trabajador">
+              <PropertyRef Name="Empresa_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MovimientosDeDocumentoNotificaciones">
+          <End Role="MovimientosDeDocumento" Type="Self.MovimientosDeDocumento" Multiplicity="1" />
+          <End Role="Notificaciones" Type="Self.Notificaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MovimientosDeDocumento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Notificaciones">
+              <PropertyRef Name="MovimientosDeDocumento_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropietarioDocumento_Documento">
+          <End Role="Documento" Type="Self.Documento" Multiplicity="1" />
+          <End Role="PropietarioDocumento" Type="Self.PropietarioDocumento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropietarioDocumento">
+              <PropertyRef Name="Documento_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PropietarioDocumento_Propietario">
+          <End Role="Propietario" Type="Self.Propietario" Multiplicity="1" />
+          <End Role="PropietarioDocumento" Type="Self.PropietarioDocumento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Propietario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropietarioDocumento">
+              <PropertyRef Name="Propietario_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RequisitosTipoDocumento_Requisitos">
+          <End Role="Requisitos" Type="Self.Requisitos" Multiplicity="1" />
+          <End Role="RequisitosTipoDocumento" Type="Self.RequisitosTipoDocumento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Requisitos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RequisitosTipoDocumento">
+              <PropertyRef Name="Requisitos_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RequisitosTipoDocumento_TipoDocumento">
+          <End Role="TipoDocumento" Type="Self.TipoDocumento" Multiplicity="1" />
+          <End Role="RequisitosTipoDocumento" Type="Self.RequisitosTipoDocumento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoDocumento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RequisitosTipoDocumento">
+              <PropertyRef Name="TipoDocumento_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolPermiso_Permiso">
+          <End Role="Permiso" Type="Self.Permiso" Multiplicity="1" />
+          <End Role="RolPermiso" Type="Self.RolPermiso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permiso">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RolPermiso">
+              <PropertyRef Name="Permiso_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolPermiso_Rol">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+          <End Role="RolPermiso" Type="Self.RolPermiso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RolPermiso">
+              <PropertyRef Name="Rol_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoDocumento_translation_TipoDocumento">
+          <End Role="TipoDocumento" Type="Self.TipoDocumento" Multiplicity="1" />
+          <End Role="TipoDocumento_translation" Type="Self.TipoDocumento_translation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoDocumento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TipoDocumento_translation">
+              <PropertyRef Name="Tipodocumento_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoDocumentoDocumento">
+          <End Role="TipoDocumento" Type="Self.TipoDocumento" Multiplicity="1" />
+          <End Role="Documento" Type="Self.Documento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoDocumento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Documento">
+              <PropertyRef Name="TipoDocumento_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoEmpresa_translation_TipoEmpresa">
+          <End Role="TipoEmpresa" Type="Self.TipoEmpresa" Multiplicity="1" />
+          <End Role="TipoEmpresa_translation" Type="Self.TipoEmpresa_translation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEmpresa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TipoEmpresa_translation">
+              <PropertyRef Name="Tipoempresa_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoEmpresaEmpresa">
+          <End Role="TipoEmpresa" Type="Self.TipoEmpresa" Multiplicity="1" />
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEmpresa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Empresa">
+              <PropertyRef Name="TipoEmpresa_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoEstadoDocumento">
+          <End Role="TipoEstado" Type="Self.TipoEstado" Multiplicity="1" />
+          <End Role="Documento" Type="Self.Documento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEstado">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Documento">
+              <PropertyRef Name="Estado_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoEstadoMovimientosDeDocumento">
+          <End Role="TipoEstado" Type="Self.TipoEstado" Multiplicity="1" />
+          <End Role="MovimientosDeDocumento" Type="Self.MovimientosDeDocumento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEstado">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MovimientosDeDocumento">
+              <PropertyRef Name="TipoEstado_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoEtapaDocumento">
+          <End Role="TipoEtapa" Type="Self.TipoEtapa" Multiplicity="1" />
+          <End Role="Documento" Type="Self.Documento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEtapa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Documento">
+              <PropertyRef Name="Etapa_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoEtapaMovimientosDeDocumento">
+          <End Role="TipoEtapa" Type="Self.TipoEtapa" Multiplicity="1" />
+          <End Role="MovimientosDeDocumento" Type="Self.MovimientosDeDocumento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEtapa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MovimientosDeDocumento">
+              <PropertyRef Name="TipoEtapa_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tipoidentificador_translation_TipoIdentificador">
+          <End Role="TipoIdentificador" Type="Self.TipoIdentificador" Multiplicity="1" />
+          <End Role="Tipoidentificador_translation" Type="Self.Tipoidentificador_translation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoIdentificador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tipoidentificador_translation">
+              <PropertyRef Name="Tipoidentificador_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoIdentificadorEmpresa">
+          <End Role="TipoIdentificador" Type="Self.TipoIdentificador" Multiplicity="1" />
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoIdentificador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Empresa">
+              <PropertyRef Name="TipoIdentificador_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoIdentificadorTrabajador">
+          <End Role="TipoIdentificador" Type="Self.TipoIdentificador" Multiplicity="1" />
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoIdentificador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Trabajador">
+              <PropertyRef Name="TipoIdentificador_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoTrabajador_translation_TipoTrabajador">
+          <End Role="TipoTrabajador" Type="Self.TipoTrabajador" Multiplicity="1" />
+          <End Role="TipoTrabajador_translation" Type="Self.TipoTrabajador_translation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoTrabajador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TipoTrabajador_translation">
+              <PropertyRef Name="TipoTrabajador_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoTrabajadorTrabajador">
+          <End Role="TipoTrabajador" Type="Self.TipoTrabajador" Multiplicity="1" />
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoTrabajador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Trabajador">
+              <PropertyRef Name="TipoTrabajador_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrabajadorPropietario">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="0..1" />
+          <End Role="Propietario" Type="Self.Propietario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Propietario">
+              <PropertyRef Name="Trabajador_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Empresa">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Empresa_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioDocumento">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Documento" Type="Self.Documento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Documento">
+              <PropertyRef Name="Usuario_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioMovimientosDeDocumento">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="MovimientosDeDocumento" Type="Self.MovimientosDeDocumento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MovimientosDeDocumento">
+              <PropertyRef Name="Usuario_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioRol">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Rol_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="SELECT_DocumentosGenerarZIP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="listaEmpresas" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="listaTrabajadores" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="listaRequisitos" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="SELECT_DocumentosGenerarZIP_InfoEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="listaEmpresas" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="listaRequisitos" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="SELECT_DocumentosGenerarZIP_InfoTrabajadores" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="listaTrabajadores" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="listaRequisitos" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <EntityContainer Name="PrestlanModelStoreContainer">
+          <EntitySet Name="Actividad" EntityType="Self.Actividad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Actividad_translation" EntityType="Self.Actividad_translation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActividadTrabajador" EntityType="Self.ActividadTrabajador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Biblioteca" EntityType="Self.Biblioteca" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BibliotecaDocumento" EntityType="Self.BibliotecaDocumento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Configuracion" EntityType="Self.Configuracion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Documento" EntityType="Self.Documento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fichero" EntityType="Self.Fichero" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Idiomas" EntityType="Self.Idiomas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MovimientosDeDocumento" EntityType="Self.MovimientosDeDocumento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notificaciones" EntityType="Self.Notificaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permiso" EntityType="Self.Permiso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Propietario" EntityType="Self.Propietario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropietarioDocumento" EntityType="Self.PropietarioDocumento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reclamaciones" EntityType="Self.Reclamaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Requisitos" EntityType="Self.Requisitos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RequisitosTipoDocumento" EntityType="Self.RequisitosTipoDocumento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RolPermiso" EntityType="Self.RolPermiso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoDocumento" EntityType="Self.TipoDocumento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoDocumento_translation" EntityType="Self.TipoDocumento_translation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoEmpresa" EntityType="Self.TipoEmpresa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoEmpresa_translation" EntityType="Self.TipoEmpresa_translation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoEstado" EntityType="Self.TipoEstado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoEtapa" EntityType="Self.TipoEtapa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoIdentificador" EntityType="Self.TipoIdentificador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipoidentificador_translation" EntityType="Self.Tipoidentificador_translation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoTrabajador" EntityType="Self.TipoTrabajador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoTrabajador_translation" EntityType="Self.TipoTrabajador_translation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trabajador" EntityType="Self.Trabajador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Actividad_translation_Actividad" Association="Self.FK_Actividad_translation_Actividad">
+            <End Role="Actividad" EntitySet="Actividad" />
+            <End Role="Actividad_translation" EntitySet="Actividad_translation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActividadEmpresa" Association="Self.FK_ActividadEmpresa">
+            <End Role="Actividad" EntitySet="Actividad" />
+            <End Role="Empresa" EntitySet="Empresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActividadTrabajador_Actividad" Association="Self.FK_ActividadTrabajador_Actividad">
+            <End Role="Actividad" EntitySet="Actividad" />
+            <End Role="ActividadTrabajador" EntitySet="ActividadTrabajador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActividadTrabajador_Trabajador" Association="Self.FK_ActividadTrabajador_Trabajador">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="ActividadTrabajador" EntitySet="ActividadTrabajador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BibliotecaDocumento_Biblioteca" Association="Self.FK_BibliotecaDocumento_Biblioteca">
+            <End Role="Biblioteca" EntitySet="Biblioteca" />
+            <End Role="BibliotecaDocumento" EntitySet="BibliotecaDocumento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BibliotecaDocumento_Documento" Association="Self.FK_BibliotecaDocumento_Documento">
+            <End Role="Documento" EntitySet="Documento" />
+            <End Role="BibliotecaDocumento" EntitySet="BibliotecaDocumento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Documento_Documento" Association="Self.FK_Documento_Documento">
+            <End Role="Documento" EntitySet="Documento" />
+            <End Role="Documento1" EntitySet="Documento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DocumentoFichero" Association="Self.FK_DocumentoFichero">
+            <End Role="Fichero" EntitySet="Fichero" />
+            <End Role="Documento" EntitySet="Documento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DocumentoMovimientosDeDocumento" Association="Self.FK_DocumentoMovimientosDeDocumento">
+            <End Role="Documento" EntitySet="Documento" />
+            <End Role="MovimientosDeDocumento" EntitySet="MovimientosDeDocumento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpresaPropietario" Association="Self.FK_EmpresaPropietario">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Propietario" EntitySet="Propietario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpresaTrabajador" Association="Self.FK_EmpresaTrabajador">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Trabajador" EntitySet="Trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MovimientosDeDocumentoNotificaciones" Association="Self.FK_MovimientosDeDocumentoNotificaciones">
+            <End Role="MovimientosDeDocumento" EntitySet="MovimientosDeDocumento" />
+            <End Role="Notificaciones" EntitySet="Notificaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropietarioDocumento_Documento" Association="Self.FK_PropietarioDocumento_Documento">
+            <End Role="Documento" EntitySet="Documento" />
+            <End Role="PropietarioDocumento" EntitySet="PropietarioDocumento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PropietarioDocumento_Propietario" Association="Self.FK_PropietarioDocumento_Propietario">
+            <End Role="Propietario" EntitySet="Propietario" />
+            <End Role="PropietarioDocumento" EntitySet="PropietarioDocumento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RequisitosTipoDocumento_Requisitos" Association="Self.FK_RequisitosTipoDocumento_Requisitos">
+            <End Role="Requisitos" EntitySet="Requisitos" />
+            <End Role="RequisitosTipoDocumento" EntitySet="RequisitosTipoDocumento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RequisitosTipoDocumento_TipoDocumento" Association="Self.FK_RequisitosTipoDocumento_TipoDocumento">
+            <End Role="TipoDocumento" EntitySet="TipoDocumento" />
+            <End Role="RequisitosTipoDocumento" EntitySet="RequisitosTipoDocumento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolPermiso_Permiso" Association="Self.FK_RolPermiso_Permiso">
+            <End Role="Permiso" EntitySet="Permiso" />
+            <End Role="RolPermiso" EntitySet="RolPermiso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolPermiso_Rol" Association="Self.FK_RolPermiso_Rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="RolPermiso" EntitySet="RolPermiso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoDocumento_translation_TipoDocumento" Association="Self.FK_TipoDocumento_translation_TipoDocumento">
+            <End Role="TipoDocumento" EntitySet="TipoDocumento" />
+            <End Role="TipoDocumento_translation" EntitySet="TipoDocumento_translation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoDocumentoDocumento" Association="Self.FK_TipoDocumentoDocumento">
+            <End Role="TipoDocumento" EntitySet="TipoDocumento" />
+            <End Role="Documento" EntitySet="Documento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoEmpresa_translation_TipoEmpresa" Association="Self.FK_TipoEmpresa_translation_TipoEmpresa">
+            <End Role="TipoEmpresa" EntitySet="TipoEmpresa" />
+            <End Role="TipoEmpresa_translation" EntitySet="TipoEmpresa_translation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoEmpresaEmpresa" Association="Self.FK_TipoEmpresaEmpresa">
+            <End Role="TipoEmpresa" EntitySet="TipoEmpresa" />
+            <End Role="Empresa" EntitySet="Empresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoEstadoDocumento" Association="Self.FK_TipoEstadoDocumento">
+            <End Role="TipoEstado" EntitySet="TipoEstado" />
+            <End Role="Documento" EntitySet="Documento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoEstadoMovimientosDeDocumento" Association="Self.FK_TipoEstadoMovimientosDeDocumento">
+            <End Role="TipoEstado" EntitySet="TipoEstado" />
+            <End Role="MovimientosDeDocumento" EntitySet="MovimientosDeDocumento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoEtapaDocumento" Association="Self.FK_TipoEtapaDocumento">
+            <End Role="TipoEtapa" EntitySet="TipoEtapa" />
+            <End Role="Documento" EntitySet="Documento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoEtapaMovimientosDeDocumento" Association="Self.FK_TipoEtapaMovimientosDeDocumento">
+            <End Role="TipoEtapa" EntitySet="TipoEtapa" />
+            <End Role="MovimientosDeDocumento" EntitySet="MovimientosDeDocumento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tipoidentificador_translation_TipoIdentificador" Association="Self.FK_Tipoidentificador_translation_TipoIdentificador">
+            <End Role="TipoIdentificador" EntitySet="TipoIdentificador" />
+            <End Role="Tipoidentificador_translation" EntitySet="Tipoidentificador_translation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoIdentificadorEmpresa" Association="Self.FK_TipoIdentificadorEmpresa">
+            <End Role="TipoIdentificador" EntitySet="TipoIdentificador" />
+            <End Role="Empresa" EntitySet="Empresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoIdentificadorTrabajador" Association="Self.FK_TipoIdentificadorTrabajador">
+            <End Role="TipoIdentificador" EntitySet="TipoIdentificador" />
+            <End Role="Trabajador" EntitySet="Trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoTrabajador_translation_TipoTrabajador" Association="Self.FK_TipoTrabajador_translation_TipoTrabajador">
+            <End Role="TipoTrabajador" EntitySet="TipoTrabajador" />
+            <End Role="TipoTrabajador_translation" EntitySet="TipoTrabajador_translation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoTrabajadorTrabajador" Association="Self.FK_TipoTrabajadorTrabajador">
+            <End Role="TipoTrabajador" EntitySet="TipoTrabajador" />
+            <End Role="Trabajador" EntitySet="Trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrabajadorPropietario" Association="Self.FK_TrabajadorPropietario">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Propietario" EntitySet="Propietario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Empresa" Association="Self.FK_Usuario_Empresa">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioDocumento" Association="Self.FK_UsuarioDocumento">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Documento" EntitySet="Documento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioMovimientosDeDocumento" Association="Self.FK_UsuarioMovimientosDeDocumento">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="MovimientosDeDocumento" EntitySet="MovimientosDeDocumento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioRol" Association="Self.FK_UsuarioRol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Prestlan.Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PRESTLANEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Actividad" EntityType="Prestlan.Model.Actividad" />
+          <EntitySet Name="Actividad_translation" EntityType="Prestlan.Model.Actividad_translation" />
+          <EntitySet Name="Biblioteca" EntityType="Prestlan.Model.Biblioteca" />
+          <EntitySet Name="Empresa" EntityType="Prestlan.Model.Empresa" />
+          <EntitySet Name="Fichero" EntityType="Prestlan.Model.Fichero" />
+          <EntitySet Name="Idiomas" EntityType="Prestlan.Model.Idiomas" />
+          <EntitySet Name="Log" EntityType="Prestlan.Model.Log" />
+          <EntitySet Name="MovimientosDeDocumento" EntityType="Prestlan.Model.MovimientosDeDocumento" />
+          <EntitySet Name="Notificaciones" EntityType="Prestlan.Model.Notificaciones" />
+          <EntitySet Name="Propietario" EntityType="Prestlan.Model.Propietario" />
+          <EntitySet Name="Reclamaciones" EntityType="Prestlan.Model.Reclamaciones" />
+          <EntitySet Name="Requisitos" EntityType="Prestlan.Model.Requisitos" />
+          <EntitySet Name="TipoDocumento" EntityType="Prestlan.Model.TipoDocumento" />
+          <EntitySet Name="TipoDocumento_translation" EntityType="Prestlan.Model.TipoDocumento_translation" />
+          <EntitySet Name="TipoEmpresa" EntityType="Prestlan.Model.TipoEmpresa" />
+          <EntitySet Name="TipoEmpresa_translation" EntityType="Prestlan.Model.TipoEmpresa_translation" />
+          <EntitySet Name="TipoEstado" EntityType="Prestlan.Model.TipoEstado" />
+          <EntitySet Name="TipoEtapa" EntityType="Prestlan.Model.TipoEtapa" />
+          <EntitySet Name="TipoIdentificador" EntityType="Prestlan.Model.TipoIdentificador" />
+          <EntitySet Name="Tipoidentificador_translation" EntityType="Prestlan.Model.Tipoidentificador_translation" />
+          <EntitySet Name="TipoTrabajador" EntityType="Prestlan.Model.TipoTrabajador" />
+          <EntitySet Name="TipoTrabajador_translation" EntityType="Prestlan.Model.TipoTrabajador_translation" />
+          <EntitySet Name="Trabajador" EntityType="Prestlan.Model.Trabajador" />
+          <EntitySet Name="Usuario" EntityType="Prestlan.Model.Usuario" />
+          <AssociationSet Name="FK_Actividad_translation_Actividad" Association="Prestlan.Model.FK_Actividad_translation_Actividad">
+            <End Role="Actividad" EntitySet="Actividad" />
+            <End Role="Actividad_translation" EntitySet="Actividad_translation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActividadEmpresa" Association="Prestlan.Model.FK_ActividadEmpresa">
+            <End Role="Actividad" EntitySet="Actividad" />
+            <End Role="Empresa" EntitySet="Empresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpresaPropietario" Association="Prestlan.Model.FK_EmpresaPropietario">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Propietario" EntitySet="Propietario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpresaTrabajador" Association="Prestlan.Model.FK_EmpresaTrabajador">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Trabajador" EntitySet="Trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoEmpresaEmpresa" Association="Prestlan.Model.FK_TipoEmpresaEmpresa">
+            <End Role="TipoEmpresa" EntitySet="TipoEmpresa" />
+            <End Role="Empresa" EntitySet="Empresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoIdentificadorEmpresa" Association="Prestlan.Model.FK_TipoIdentificadorEmpresa">
+            <End Role="TipoIdentificador" EntitySet="TipoIdentificador" />
+            <End Role="Empresa" EntitySet="Empresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MovimientosDeDocumentoNotificaciones" Association="Prestlan.Model.FK_MovimientosDeDocumentoNotificaciones">
+            <End Role="MovimientosDeDocumento" EntitySet="MovimientosDeDocumento" />
+            <End Role="Notificaciones" EntitySet="Notificaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoEstadoMovimientosDeDocumento" Association="Prestlan.Model.FK_TipoEstadoMovimientosDeDocumento">
+            <End Role="TipoEstado" EntitySet="TipoEstado" />
+            <End Role="MovimientosDeDocumento" EntitySet="MovimientosDeDocumento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoEtapaMovimientosDeDocumento" Association="Prestlan.Model.FK_TipoEtapaMovimientosDeDocumento">
+            <End Role="TipoEtapa" EntitySet="TipoEtapa" />
+            <End Role="MovimientosDeDocumento" EntitySet="MovimientosDeDocumento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioMovimientosDeDocumento" Association="Prestlan.Model.FK_UsuarioMovimientosDeDocumento">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="MovimientosDeDocumento" EntitySet="MovimientosDeDocumento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrabajadorPropietario" Association="Prestlan.Model.FK_TrabajadorPropietario">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Propietario" EntitySet="Propietario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoDocumento_translation_TipoDocumento" Association="Prestlan.Model.FK_TipoDocumento_translation_TipoDocumento">
+            <End Role="TipoDocumento" EntitySet="TipoDocumento" />
+            <End Role="TipoDocumento_translation" EntitySet="TipoDocumento_translation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoEmpresa_translation_TipoEmpresa" Association="Prestlan.Model.FK_TipoEmpresa_translation_TipoEmpresa">
+            <End Role="TipoEmpresa" EntitySet="TipoEmpresa" />
+            <End Role="TipoEmpresa_translation" EntitySet="TipoEmpresa_translation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tipoidentificador_translation_TipoIdentificador" Association="Prestlan.Model.FK_Tipoidentificador_translation_TipoIdentificador">
+            <End Role="TipoIdentificador" EntitySet="TipoIdentificador" />
+            <End Role="Tipoidentificador_translation" EntitySet="Tipoidentificador_translation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoIdentificadorTrabajador" Association="Prestlan.Model.FK_TipoIdentificadorTrabajador">
+            <End Role="TipoIdentificador" EntitySet="TipoIdentificador" />
+            <End Role="Trabajador" EntitySet="Trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoTrabajador_translation_TipoTrabajador" Association="Prestlan.Model.FK_TipoTrabajador_translation_TipoTrabajador">
+            <End Role="TipoTrabajador" EntitySet="TipoTrabajador" />
+            <End Role="TipoTrabajador_translation" EntitySet="TipoTrabajador_translation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoTrabajadorTrabajador" Association="Prestlan.Model.FK_TipoTrabajadorTrabajador">
+            <End Role="TipoTrabajador" EntitySet="TipoTrabajador" />
+            <End Role="Trabajador" EntitySet="Trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="ActividadTrabajador" Association="Prestlan.Model.ActividadTrabajador">
+            <End Role="Actividad" EntitySet="Actividad" />
+            <End Role="Trabajador" EntitySet="Trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="RequisitosTipoDocumento" Association="Prestlan.Model.RequisitosTipoDocumento">
+            <End Role="Requisitos" EntitySet="Requisitos" />
+            <End Role="TipoDocumento" EntitySet="TipoDocumento" />
+          </AssociationSet>
+          <EntitySet Name="Documento" EntityType="Prestlan.Model.Documento" />
+          <AssociationSet Name="FK_Documento_Documento" Association="Prestlan.Model.FK_Documento_Documento">
+            <End Role="Documento" EntitySet="Documento" />
+            <End Role="Documento1" EntitySet="Documento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DocumentoFichero" Association="Prestlan.Model.FK_DocumentoFichero">
+            <End Role="Fichero" EntitySet="Fichero" />
+            <End Role="Documento" EntitySet="Documento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DocumentoMovimientosDeDocumento" Association="Prestlan.Model.FK_DocumentoMovimientosDeDocumento">
+            <End Role="Documento" EntitySet="Documento" />
+            <End Role="MovimientosDeDocumento" EntitySet="MovimientosDeDocumento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoDocumentoDocumento" Association="Prestlan.Model.FK_TipoDocumentoDocumento">
+            <End Role="TipoDocumento" EntitySet="TipoDocumento" />
+            <End Role="Documento" EntitySet="Documento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoEstadoDocumento" Association="Prestlan.Model.FK_TipoEstadoDocumento">
+            <End Role="TipoEstado" EntitySet="TipoEstado" />
+            <End Role="Documento" EntitySet="Documento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoEtapaDocumento" Association="Prestlan.Model.FK_TipoEtapaDocumento">
+            <End Role="TipoEtapa" EntitySet="TipoEtapa" />
+            <End Role="Documento" EntitySet="Documento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioDocumento" Association="Prestlan.Model.FK_UsuarioDocumento">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Documento" EntitySet="Documento" />
+          </AssociationSet>
+          <AssociationSet Name="BibliotecaDocumento" Association="Prestlan.Model.BibliotecaDocumento">
+            <End Role="Biblioteca" EntitySet="Biblioteca" />
+            <End Role="Documento" EntitySet="Documento" />
+          </AssociationSet>
+          <AssociationSet Name="PropietarioDocumento" Association="Prestlan.Model.PropietarioDocumento">
+            <End Role="Documento" EntitySet="Documento" />
+            <End Role="Propietario" EntitySet="Propietario" />
+          </AssociationSet>
+          <EntitySet Name="Permiso" EntityType="Prestlan.Model.Permiso" />
+          <EntitySet Name="Rol" EntityType="Prestlan.Model.Rol" />
+          <AssociationSet Name="FK_UsuarioRol" Association="Prestlan.Model.FK_UsuarioRol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="RolPermiso" Association="Prestlan.Model.RolPermiso">
+            <End Role="Permiso" EntitySet="Permiso" />
+            <End Role="Rol" EntitySet="Rol" />
+          </AssociationSet>
+          <EntitySet Name="Configuracion" EntityType="Prestlan.Model.Configuracion" />
+          <AssociationSet Name="FK_Usuario_Empresa" Association="Prestlan.Model.FK_Usuario_Empresa">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <FunctionImport Name="SELECT_DocumentosGenerarZIP" ReturnType="Collection(Prestlan.Model.SELECT_DocumentosGenerarZIP_Result)">
+            <Parameter Name="listaEmpresas" Mode="In" Type="String" />
+            <Parameter Name="listaTrabajadores" Mode="In" Type="String" />
+            <Parameter Name="listaRequisitos" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SELECT_DocumentosGenerarZIP_InfoEmpresa" ReturnType="Collection(Prestlan.Model.SELECT_DocumentosGenerarZIP_InfoEmpresa_Result)">
+            <Parameter Name="listaEmpresas" Mode="In" Type="String" />
+            <Parameter Name="listaRequisitos" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SELECT_DocumentosGenerarZIP_InfoTrabajadores" ReturnType="Collection(Prestlan.Model.SELECT_DocumentosGenerarZIP_InfoTrabajadores_Result)">
+            <Parameter Name="listaTrabajadores" Mode="In" Type="String" />
+            <Parameter Name="listaRequisitos" Mode="In" Type="String" />
+          </FunctionImport>
+          </EntityContainer>
+        <EntityType Name="Actividad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion_null" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Actividad_translation" Relationship="Prestlan.Model.FK_Actividad_translation_Actividad" FromRole="Actividad" ToRole="Actividad_translation" />
+          <NavigationProperty Name="Empresa" Relationship="Prestlan.Model.FK_ActividadEmpresa" FromRole="Actividad" ToRole="Empresa" />
+          <NavigationProperty Name="Trabajador" Relationship="Prestlan.Model.ActividadTrabajador" FromRole="Actividad" ToRole="Trabajador" />
+        </EntityType>
+        <EntityType Name="Actividad_translation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Actividad_Id" Type="Int32" Nullable="false" />
+          <Property Name="Idioma_codigo" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Actividad" Relationship="Prestlan.Model.FK_Actividad_translation_Actividad" FromRole="Actividad_translation" ToRole="Actividad" />
+        </EntityType>
+        <EntityType Name="Biblioteca">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Documento" Relationship="Prestlan.Model.BibliotecaDocumento" FromRole="Biblioteca" ToRole="Documento" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ValorIdentificador" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Direccion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CorreosNotificaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SinNotificaciones" Type="Boolean" Nullable="false" />
+          <Property Name="Activa" Type="Boolean" Nullable="false" />
+          <Property Name="FechaAlta" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FechaBaja" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Eliminado" Type="Boolean" Nullable="false" />
+          <Property Name="TipoIdentificador_Id" Type="Int32" Nullable="false" />
+          <Property Name="TipoEmpresa_Id" Type="Int32" Nullable="false" />
+          <Property Name="Actividad_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Actividad" Relationship="Prestlan.Model.FK_ActividadEmpresa" FromRole="Empresa" ToRole="Actividad" />
+          <NavigationProperty Name="Propietario" Relationship="Prestlan.Model.FK_EmpresaPropietario" FromRole="Empresa" ToRole="Propietario" />
+          <NavigationProperty Name="Trabajador" Relationship="Prestlan.Model.FK_EmpresaTrabajador" FromRole="Empresa" ToRole="Trabajador" />
+          <NavigationProperty Name="TipoEmpresa" Relationship="Prestlan.Model.FK_TipoEmpresaEmpresa" FromRole="Empresa" ToRole="TipoEmpresa" />
+          <NavigationProperty Name="TipoIdentificador" Relationship="Prestlan.Model.FK_TipoIdentificadorEmpresa" FromRole="Empresa" ToRole="TipoIdentificador" />
+          <NavigationProperty Name="Usuario" Relationship="Prestlan.Model.FK_Usuario_Empresa" FromRole="Empresa" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Fichero">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FechaCreado" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Documento" Relationship="Prestlan.Model.FK_DocumentoFichero" FromRole="Fichero" ToRole="Documento" />
+          <Property Name="nombreFS" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Idiomas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="predeterminado" Type="Boolean" Nullable="false" />
+          <Property Name="codigo" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="cultura" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Thread" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Level" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Logger" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Exception" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MovimientosDeDocumento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fechaOperacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Documento_Id" Type="Int32" Nullable="false" />
+          <Property Name="Usuario_Id" Type="Int32" Nullable="false" />
+          <Property Name="TipoEstado_Id" Type="Int32" Nullable="false" />
+          <Property Name="TipoEtapa_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Notificaciones" Relationship="Prestlan.Model.FK_MovimientosDeDocumentoNotificaciones" FromRole="MovimientosDeDocumento" ToRole="Notificaciones" />
+          <NavigationProperty Name="TipoEstado" Relationship="Prestlan.Model.FK_TipoEstadoMovimientosDeDocumento" FromRole="MovimientosDeDocumento" ToRole="TipoEstado" />
+          <NavigationProperty Name="TipoEtapa" Relationship="Prestlan.Model.FK_TipoEtapaMovimientosDeDocumento" FromRole="MovimientosDeDocumento" ToRole="TipoEtapa" />
+          <NavigationProperty Name="Usuario" Relationship="Prestlan.Model.FK_UsuarioMovimientosDeDocumento" FromRole="MovimientosDeDocumento" ToRole="Usuario" />
+          <NavigationProperty Name="Documento" Relationship="Prestlan.Model.FK_DocumentoMovimientosDeDocumento" FromRole="MovimientosDeDocumento" ToRole="Documento" />
+        </EntityType>
+        <EntityType Name="Notificaciones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="correoEmisor" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="correoDestinatario" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="asunto" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="contenido" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="envioCorreoExito" Type="Boolean" Nullable="false" />
+          <Property Name="fechaNotificacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MovimientosDeDocumento_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MovimientosDeDocumento" Relationship="Prestlan.Model.FK_MovimientosDeDocumentoNotificaciones" FromRole="Notificaciones" ToRole="MovimientosDeDocumento" />
+        </EntityType>
+        <EntityType Name="Propietario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Empresa_Id" Type="Int32" />
+          <Property Name="Trabajador_Id" Type="Int32" />
+          <NavigationProperty Name="Empresa" Relationship="Prestlan.Model.FK_EmpresaPropietario" FromRole="Propietario" ToRole="Empresa" />
+          <NavigationProperty Name="Trabajador" Relationship="Prestlan.Model.FK_TrabajadorPropietario" FromRole="Propietario" ToRole="Trabajador" />
+          <NavigationProperty Name="Documento" Relationship="Prestlan.Model.PropietarioDocumento" FromRole="Propietario" ToRole="Documento" />
+        </EntityType>
+        <EntityType Name="Reclamaciones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="correoEmisor" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="correoDestinatario" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="asunto" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="contenido" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="envioCorreoExito" Type="Boolean" Nullable="false" />
+          <Property Name="fechaReclamacion" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Requisitos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TipoDocumento" Relationship="Prestlan.Model.RequisitosTipoDocumento" FromRole="Requisitos" ToRole="TipoDocumento" />
+        </EntityType>
+        <EntityType Name="TipoDocumento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MultiplesPropietarios" Type="Boolean" Nullable="false" />
+          <Property Name="NivelCriticidad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TipoDocumento_translation" Relationship="Prestlan.Model.FK_TipoDocumento_translation_TipoDocumento" FromRole="TipoDocumento" ToRole="TipoDocumento_translation" />
+          <NavigationProperty Name="Requisitos" Relationship="Prestlan.Model.RequisitosTipoDocumento" FromRole="TipoDocumento" ToRole="Requisitos" />
+          <NavigationProperty Name="Documento" Relationship="Prestlan.Model.FK_TipoDocumentoDocumento" FromRole="TipoDocumento" ToRole="Documento" />
+          <Property Name="EsDocumentoDeEmpresa" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoDocumento_translation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipodocumento_Id" Type="Int32" Nullable="false" />
+          <Property Name="Idioma_codigo" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TextoAyuda" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Plantilla" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TipoDocumento" Relationship="Prestlan.Model.FK_TipoDocumento_translation_TipoDocumento" FromRole="TipoDocumento_translation" ToRole="TipoDocumento" />
+        </EntityType>
+        <EntityType Name="TipoEmpresa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Empresa" Relationship="Prestlan.Model.FK_TipoEmpresaEmpresa" FromRole="TipoEmpresa" ToRole="Empresa" />
+          <NavigationProperty Name="TipoEmpresa_translation" Relationship="Prestlan.Model.FK_TipoEmpresa_translation_TipoEmpresa" FromRole="TipoEmpresa" ToRole="TipoEmpresa_translation" />
+          <Property Name="EsEmpresaPrincipal" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TipoEmpresa_translation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipoempresa_Id" Type="Int32" Nullable="false" />
+          <Property Name="Idioma_codigo" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TipoEmpresa" Relationship="Prestlan.Model.FK_TipoEmpresa_translation_TipoEmpresa" FromRole="TipoEmpresa_translation" ToRole="TipoEmpresa" />
+        </EntityType>
+        <EntityType Name="TipoEstado">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MovimientosDeDocumento" Relationship="Prestlan.Model.FK_TipoEstadoMovimientosDeDocumento" FromRole="TipoEstado" ToRole="MovimientosDeDocumento" />
+          <NavigationProperty Name="Documento" Relationship="Prestlan.Model.FK_TipoEstadoDocumento" FromRole="TipoEstado" ToRole="Documento" />
+        </EntityType>
+        <EntityType Name="TipoEtapa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MovimientosDeDocumento" Relationship="Prestlan.Model.FK_TipoEtapaMovimientosDeDocumento" FromRole="TipoEtapa" ToRole="MovimientosDeDocumento" />
+          <NavigationProperty Name="Documento" Relationship="Prestlan.Model.FK_TipoEtapaDocumento" FromRole="TipoEtapa" ToRole="Documento" />
+        </EntityType>
+        <EntityType Name="TipoIdentificador">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion_null" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Empresa" Relationship="Prestlan.Model.FK_TipoIdentificadorEmpresa" FromRole="TipoIdentificador" ToRole="Empresa" />
+          <NavigationProperty Name="Tipoidentificador_translation" Relationship="Prestlan.Model.FK_Tipoidentificador_translation_TipoIdentificador" FromRole="TipoIdentificador" ToRole="Tipoidentificador_translation" />
+          <NavigationProperty Name="Trabajador" Relationship="Prestlan.Model.FK_TipoIdentificadorTrabajador" FromRole="TipoIdentificador" ToRole="Trabajador" />
+        </EntityType>
+        <EntityType Name="Tipoidentificador_translation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipoidentificador_Id" Type="Int32" Nullable="false" />
+          <Property Name="Idioma_codigo" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TipoIdentificador" Relationship="Prestlan.Model.FK_Tipoidentificador_translation_TipoIdentificador" FromRole="Tipoidentificador_translation" ToRole="TipoIdentificador" />
+        </EntityType>
+        <EntityType Name="TipoTrabajador">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TipoTrabajador_translation" Relationship="Prestlan.Model.FK_TipoTrabajador_translation_TipoTrabajador" FromRole="TipoTrabajador" ToRole="TipoTrabajador_translation" />
+          <NavigationProperty Name="Trabajador" Relationship="Prestlan.Model.FK_TipoTrabajadorTrabajador" FromRole="TipoTrabajador" ToRole="Trabajador" />
+        </EntityType>
+        <EntityType Name="TipoTrabajador_translation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoTrabajador_Id" Type="Int32" Nullable="false" />
+          <Property Name="Idioma_codigo" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TipoTrabajador" Relationship="Prestlan.Model.FK_TipoTrabajador_translation_TipoTrabajador" FromRole="TipoTrabajador_translation" ToRole="TipoTrabajador" />
+        </EntityType>
+        <EntityType Name="Trabajador">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ValorIdentificador" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="FechaAlta" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FechaBaja" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Eliminado" Type="Boolean" Nullable="false" />
+          <Property Name="TipoIdentificador_Id" Type="Int32" Nullable="false" />
+          <Property Name="Empresa_Id" Type="Int32" Nullable="false" />
+          <Property Name="TipoTrabajador_Id" Type="Int32" Nullable="false" />
+          <Property Name="Autonomo" Type="Boolean" Nullable="false" />
+          <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empresa" Relationship="Prestlan.Model.FK_EmpresaTrabajador" FromRole="Trabajador" ToRole="Empresa" />
+          <NavigationProperty Name="Propietario" Relationship="Prestlan.Model.FK_TrabajadorPropietario" FromRole="Trabajador" ToRole="Propietario" />
+          <NavigationProperty Name="TipoIdentificador" Relationship="Prestlan.Model.FK_TipoIdentificadorTrabajador" FromRole="Trabajador" ToRole="TipoIdentificador" />
+          <NavigationProperty Name="TipoTrabajador" Relationship="Prestlan.Model.FK_TipoTrabajadorTrabajador" FromRole="Trabajador" ToRole="TipoTrabajador" />
+          <NavigationProperty Name="Actividad" Relationship="Prestlan.Model.ActividadTrabajador" FromRole="Trabajador" ToRole="Actividad" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="clave" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fechaAlta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fechaBaja" Type="DateTime" Precision="3" />
+          <Property Name="ultimoLogin" Type="DateTime" Precision="3" />
+          <Property Name="Rol_Id" Type="Int32" Nullable="false" />
+          <Property Name="ip" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="MovimientosDeDocumento" Relationship="Prestlan.Model.FK_UsuarioMovimientosDeDocumento" FromRole="Usuario" ToRole="MovimientosDeDocumento" />
+          <NavigationProperty Name="Documento" Relationship="Prestlan.Model.FK_UsuarioDocumento" FromRole="Usuario" ToRole="Documento" />
+          <NavigationProperty Name="Rol" Relationship="Prestlan.Model.FK_UsuarioRol" FromRole="Usuario" ToRole="Rol" />
+          <Property Name="idioma" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="Empresa_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Empresa" Relationship="Prestlan.Model.FK_Usuario_Empresa" FromRole="Usuario" ToRole="Empresa" />
+        </EntityType>
+        <Association Name="FK_Actividad_translation_Actividad">
+          <End Type="Prestlan.Model.Actividad" Role="Actividad" Multiplicity="1" />
+          <End Type="Prestlan.Model.Actividad_translation" Role="Actividad_translation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actividad">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Actividad_translation">
+              <PropertyRef Name="Actividad_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActividadEmpresa">
+          <End Type="Prestlan.Model.Actividad" Role="Actividad" Multiplicity="1" />
+          <End Type="Prestlan.Model.Empresa" Role="Empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actividad">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Empresa">
+              <PropertyRef Name="Actividad_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpresaPropietario">
+          <End Type="Prestlan.Model.Empresa" Role="Empresa" Multiplicity="0..1" />
+          <End Type="Prestlan.Model.Propietario" Role="Propietario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Propietario">
+              <PropertyRef Name="Empresa_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpresaTrabajador">
+          <End Type="Prestlan.Model.Empresa" Role="Empresa" Multiplicity="1" />
+          <End Type="Prestlan.Model.Trabajador" Role="Trabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Trabajador">
+              <PropertyRef Name="Empresa_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoEmpresaEmpresa">
+          <End Type="Prestlan.Model.TipoEmpresa" Role="TipoEmpresa" Multiplicity="1" />
+          <End Type="Prestlan.Model.Empresa" Role="Empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEmpresa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Empresa">
+              <PropertyRef Name="TipoEmpresa_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoIdentificadorEmpresa">
+          <End Type="Prestlan.Model.TipoIdentificador" Role="TipoIdentificador" Multiplicity="1" />
+          <End Type="Prestlan.Model.Empresa" Role="Empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoIdentificador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Empresa">
+              <PropertyRef Name="TipoIdentificador_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MovimientosDeDocumentoNotificaciones">
+          <End Type="Prestlan.Model.MovimientosDeDocumento" Role="MovimientosDeDocumento" Multiplicity="1" />
+          <End Type="Prestlan.Model.Notificaciones" Role="Notificaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MovimientosDeDocumento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Notificaciones">
+              <PropertyRef Name="MovimientosDeDocumento_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoEstadoMovimientosDeDocumento">
+          <End Type="Prestlan.Model.TipoEstado" Role="TipoEstado" Multiplicity="1" />
+          <End Type="Prestlan.Model.MovimientosDeDocumento" Role="MovimientosDeDocumento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEstado">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MovimientosDeDocumento">
+              <PropertyRef Name="TipoEstado_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoEtapaMovimientosDeDocumento">
+          <End Type="Prestlan.Model.TipoEtapa" Role="TipoEtapa" Multiplicity="1" />
+          <End Type="Prestlan.Model.MovimientosDeDocumento" Role="MovimientosDeDocumento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEtapa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MovimientosDeDocumento">
+              <PropertyRef Name="TipoEtapa_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioMovimientosDeDocumento">
+          <End Type="Prestlan.Model.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="Prestlan.Model.MovimientosDeDocumento" Role="MovimientosDeDocumento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MovimientosDeDocumento">
+              <PropertyRef Name="Usuario_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrabajadorPropietario">
+          <End Type="Prestlan.Model.Trabajador" Role="Trabajador" Multiplicity="0..1" />
+          <End Type="Prestlan.Model.Propietario" Role="Propietario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Propietario">
+              <PropertyRef Name="Trabajador_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoDocumento_translation_TipoDocumento">
+          <End Type="Prestlan.Model.TipoDocumento" Role="TipoDocumento" Multiplicity="1" />
+          <End Type="Prestlan.Model.TipoDocumento_translation" Role="TipoDocumento_translation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoDocumento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TipoDocumento_translation">
+              <PropertyRef Name="Tipodocumento_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoEmpresa_translation_TipoEmpresa">
+          <End Type="Prestlan.Model.TipoEmpresa" Role="TipoEmpresa" Multiplicity="1" />
+          <End Type="Prestlan.Model.TipoEmpresa_translation" Role="TipoEmpresa_translation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEmpresa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TipoEmpresa_translation">
+              <PropertyRef Name="Tipoempresa_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tipoidentificador_translation_TipoIdentificador">
+          <End Type="Prestlan.Model.TipoIdentificador" Role="TipoIdentificador" Multiplicity="1" />
+          <End Type="Prestlan.Model.Tipoidentificador_translation" Role="Tipoidentificador_translation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoIdentificador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tipoidentificador_translation">
+              <PropertyRef Name="Tipoidentificador_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoIdentificadorTrabajador">
+          <End Type="Prestlan.Model.TipoIdentificador" Role="TipoIdentificador" Multiplicity="1" />
+          <End Type="Prestlan.Model.Trabajador" Role="Trabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoIdentificador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Trabajador">
+              <PropertyRef Name="TipoIdentificador_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoTrabajador_translation_TipoTrabajador">
+          <End Type="Prestlan.Model.TipoTrabajador" Role="TipoTrabajador" Multiplicity="1" />
+          <End Type="Prestlan.Model.TipoTrabajador_translation" Role="TipoTrabajador_translation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoTrabajador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TipoTrabajador_translation">
+              <PropertyRef Name="TipoTrabajador_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoTrabajadorTrabajador">
+          <End Type="Prestlan.Model.TipoTrabajador" Role="TipoTrabajador" Multiplicity="1" />
+          <End Type="Prestlan.Model.Trabajador" Role="Trabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoTrabajador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Trabajador">
+              <PropertyRef Name="TipoTrabajador_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ActividadTrabajador">
+          <End Type="Prestlan.Model.Actividad" Role="Actividad" Multiplicity="*" />
+          <End Type="Prestlan.Model.Trabajador" Role="Trabajador" Multiplicity="*" />
+        </Association>
+        <Association Name="RequisitosTipoDocumento">
+          <End Type="Prestlan.Model.Requisitos" Role="Requisitos" Multiplicity="*" />
+          <End Type="Prestlan.Model.TipoDocumento" Role="TipoDocumento" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Documento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Titulo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Caduca" Type="Boolean" Nullable="false" />
+          <Property Name="FechaCaducidad" Type="DateTime" Precision="3" />
+          <Property Name="SinPropietarios" Type="Boolean" Nullable="false" />
+          <Property Name="SinNotificaciones" Type="Boolean" Nullable="false" />
+          <Property Name="FechaCreado" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaActualizado" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Eliminado" Type="Boolean" Nullable="false" />
+          <Property Name="HashEmpleado" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Fichero_Id" Type="Int32" Nullable="false" />
+          <Property Name="DocumentoVersion_Id" Type="Int32" Nullable="true" />
+          <Property Name="TipoDocumento_Id" Type="Int32" Nullable="false" />
+          <Property Name="Usuario_Id" Type="Int32" Nullable="false" />
+          <Property Name="Estado_Id" Type="Int32" Nullable="false" />
+          <Property Name="Etapa_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Documento1" Relationship="Prestlan.Model.FK_Documento_Documento" FromRole="Documento" ToRole="Documento1" />
+          <NavigationProperty Name="Documento2" Relationship="Prestlan.Model.FK_Documento_Documento" FromRole="Documento1" ToRole="Documento" />
+          <NavigationProperty Name="Fichero" Relationship="Prestlan.Model.FK_DocumentoFichero" FromRole="Documento" ToRole="Fichero" />
+          <NavigationProperty Name="MovimientosDeDocumento" Relationship="Prestlan.Model.FK_DocumentoMovimientosDeDocumento" FromRole="Documento" ToRole="MovimientosDeDocumento" />
+          <NavigationProperty Name="TipoDocumento" Relationship="Prestlan.Model.FK_TipoDocumentoDocumento" FromRole="Documento" ToRole="TipoDocumento" />
+          <NavigationProperty Name="TipoEstado" Relationship="Prestlan.Model.FK_TipoEstadoDocumento" FromRole="Documento" ToRole="TipoEstado" />
+          <NavigationProperty Name="TipoEtapa" Relationship="Prestlan.Model.FK_TipoEtapaDocumento" FromRole="Documento" ToRole="TipoEtapa" />
+          <NavigationProperty Name="Usuario" Relationship="Prestlan.Model.FK_UsuarioDocumento" FromRole="Documento" ToRole="Usuario" />
+          <NavigationProperty Name="Biblioteca" Relationship="Prestlan.Model.BibliotecaDocumento" FromRole="Documento" ToRole="Biblioteca" />
+          <NavigationProperty Name="Propietario" Relationship="Prestlan.Model.PropietarioDocumento" FromRole="Documento" ToRole="Propietario" />
+        </EntityType>
+        <Association Name="FK_Documento_Documento">
+          <End Type="Prestlan.Model.Documento" Role="Documento" Multiplicity="0..1" />
+          <End Type="Prestlan.Model.Documento" Role="Documento1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Documento1">
+              <PropertyRef Name="DocumentoVersion_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DocumentoFichero">
+          <End Type="Prestlan.Model.Fichero" Role="Fichero" Multiplicity="1" />
+          <End Type="Prestlan.Model.Documento" Role="Documento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fichero">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Documento">
+              <PropertyRef Name="Fichero_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DocumentoMovimientosDeDocumento">
+          <End Type="Prestlan.Model.Documento" Role="Documento" Multiplicity="1" />
+          <End Type="Prestlan.Model.MovimientosDeDocumento" Role="MovimientosDeDocumento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MovimientosDeDocumento">
+              <PropertyRef Name="Documento_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoDocumentoDocumento">
+          <End Type="Prestlan.Model.TipoDocumento" Role="TipoDocumento" Multiplicity="1" />
+          <End Type="Prestlan.Model.Documento" Role="Documento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoDocumento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Documento">
+              <PropertyRef Name="TipoDocumento_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoEstadoDocumento">
+          <End Type="Prestlan.Model.TipoEstado" Role="TipoEstado" Multiplicity="1" />
+          <End Type="Prestlan.Model.Documento" Role="Documento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEstado">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Documento">
+              <PropertyRef Name="Estado_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoEtapaDocumento">
+          <End Type="Prestlan.Model.TipoEtapa" Role="TipoEtapa" Multiplicity="1" />
+          <End Type="Prestlan.Model.Documento" Role="Documento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEtapa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Documento">
+              <PropertyRef Name="Etapa_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioDocumento">
+          <End Type="Prestlan.Model.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="Prestlan.Model.Documento" Role="Documento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Documento">
+              <PropertyRef Name="Usuario_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BibliotecaDocumento">
+          <End Type="Prestlan.Model.Biblioteca" Role="Biblioteca" Multiplicity="*" />
+          <End Type="Prestlan.Model.Documento" Role="Documento" Multiplicity="*" />
+        </Association>
+        <Association Name="PropietarioDocumento">
+          <End Type="Prestlan.Model.Documento" Role="Documento" Multiplicity="*" />
+          <End Type="Prestlan.Model.Propietario" Role="Propietario" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Permiso">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Rol" Relationship="Prestlan.Model.RolPermiso" FromRole="Permiso" ToRole="Rol" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Usuario" Relationship="Prestlan.Model.FK_UsuarioRol" FromRole="Rol" ToRole="Usuario" />
+          <NavigationProperty Name="Permiso" Relationship="Prestlan.Model.RolPermiso" FromRole="Rol" ToRole="Permiso" />
+        </EntityType>
+        <Association Name="FK_UsuarioRol">
+          <End Type="Prestlan.Model.Rol" Role="Rol" Multiplicity="1" />
+          <End Type="Prestlan.Model.Usuario" Role="Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Rol_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RolPermiso">
+          <End Type="Prestlan.Model.Permiso" Role="Permiso" Multiplicity="*" />
+          <End Type="Prestlan.Model.Rol" Role="Rol" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Configuracion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="alerta_caducidad_1" Type="Int32" Nullable="false" />
+          <Property Name="alerta_caducidad_2" Type="Int32" Nullable="false" />
+          <Property Name="nombre_empresa" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="idioma_general" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_Usuario_Empresa">
+          <End Type="Prestlan.Model.Empresa" Role="Empresa" Multiplicity="1" />
+          <End Type="Prestlan.Model.Usuario" Role="Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Empresa_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="SELECT_DocumentosGenerarZIP_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="nombreFS" Nullable="false" />
+          <Property Type="Int32" Name="Empresa_Id" Nullable="true" />
+          <Property Type="Int32" Name="Trabajador_Id" Nullable="true" />
+          <Property Type="String" Name="TipoDocumento" Nullable="false" />
+          <Property Type="String" Name="NombreTrabajador" Nullable="true" />
+          <Property Type="String" Name="NombreEmpresa" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SELECT_DocumentosGenerarZIP_InfoEmpresa_Result">
+          <Property Type="Int32" Name="Empresa_Id" Nullable="false" />
+          <Property Type="String" Name="Empresa" Nullable="false" />
+          <Property Type="Int32" Name="Requisitos_Id" Nullable="false" />
+          <Property Type="String" Name="Requisito" Nullable="false" />
+          <Property Type="Int32" Name="TipoDocumento_Id" Nullable="false" />
+          <Property Type="String" Name="TipoDocumento" Nullable="false" />
+          <Property Type="Int32" Name="Documento_Id" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SELECT_DocumentosGenerarZIP_InfoTrabajadores_Result">
+          <Property Type="Int32" Name="Empresa_Id" Nullable="false" />
+          <Property Type="String" Name="Empresa" Nullable="false" />
+          <Property Type="Int32" Name="Trabajador_Id" Nullable="false" />
+          <Property Type="String" Name="Trabajador" Nullable="false" />
+          <Property Type="Int32" Name="Requisito_Id" Nullable="false" />
+          <Property Type="String" Name="Requisito" Nullable="false" />
+          <Property Type="Int32" Name="TipoDocumento_Id" Nullable="false" />
+          <Property Type="String" Name="TipoDocumento" Nullable="false" />
+          <Property Type="Int32" Name="Documento_Id" Nullable="true" />
+        </ComplexType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PrestlanModelStoreContainer" CdmEntityContainer="PRESTLANEntities">
+          <EntitySetMapping Name="Actividad">
+            <EntityTypeMapping TypeName="Prestlan.Model.Actividad">
+              <MappingFragment StoreEntitySet="Actividad">
+                <ScalarProperty Name="Descripcion_null" ColumnName="Descripcion_null" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Actividad_translation">
+            <EntityTypeMapping TypeName="Prestlan.Model.Actividad_translation">
+              <MappingFragment StoreEntitySet="Actividad_translation">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Idioma_codigo" ColumnName="Idioma_codigo" />
+                <ScalarProperty Name="Actividad_Id" ColumnName="Actividad_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Biblioteca">
+            <EntityTypeMapping TypeName="Prestlan.Model.Biblioteca">
+              <MappingFragment StoreEntitySet="Biblioteca">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empresa">
+            <EntityTypeMapping TypeName="Prestlan.Model.Empresa">
+              <MappingFragment StoreEntitySet="Empresa">
+                <ScalarProperty Name="Actividad_Id" ColumnName="Actividad_Id" />
+                <ScalarProperty Name="TipoEmpresa_Id" ColumnName="TipoEmpresa_Id" />
+                <ScalarProperty Name="TipoIdentificador_Id" ColumnName="TipoIdentificador_Id" />
+                <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
+                <ScalarProperty Name="FechaBaja" ColumnName="FechaBaja" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="Activa" ColumnName="Activa" />
+                <ScalarProperty Name="SinNotificaciones" ColumnName="SinNotificaciones" />
+                <ScalarProperty Name="CorreosNotificaciones" ColumnName="CorreosNotificaciones" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ValorIdentificador" ColumnName="ValorIdentificador" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fichero">
+            <EntityTypeMapping TypeName="Prestlan.Model.Fichero">
+              <MappingFragment StoreEntitySet="Fichero">
+                <ScalarProperty Name="nombreFS" ColumnName="nombreFS" />
+                <ScalarProperty Name="FechaCreado" ColumnName="FechaCreado" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Idiomas">
+            <EntityTypeMapping TypeName="Prestlan.Model.Idiomas">
+              <MappingFragment StoreEntitySet="Idiomas">
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="cultura" ColumnName="cultura" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="predeterminado" ColumnName="predeterminado" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Log">
+            <EntityTypeMapping TypeName="Prestlan.Model.Log">
+              <MappingFragment StoreEntitySet="Log">
+                <ScalarProperty Name="Exception" ColumnName="Exception" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Logger" ColumnName="Logger" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Thread" ColumnName="Thread" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MovimientosDeDocumento">
+            <EntityTypeMapping TypeName="Prestlan.Model.MovimientosDeDocumento">
+              <MappingFragment StoreEntitySet="MovimientosDeDocumento">
+                <ScalarProperty Name="TipoEtapa_Id" ColumnName="TipoEtapa_Id" />
+                <ScalarProperty Name="TipoEstado_Id" ColumnName="TipoEstado_Id" />
+                <ScalarProperty Name="Usuario_Id" ColumnName="Usuario_Id" />
+                <ScalarProperty Name="Documento_Id" ColumnName="Documento_Id" />
+                <ScalarProperty Name="fechaOperacion" ColumnName="fechaOperacion" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notificaciones">
+            <EntityTypeMapping TypeName="Prestlan.Model.Notificaciones">
+              <MappingFragment StoreEntitySet="Notificaciones">
+                <ScalarProperty Name="MovimientosDeDocumento_Id" ColumnName="MovimientosDeDocumento_Id" />
+                <ScalarProperty Name="fechaNotificacion" ColumnName="fechaNotificacion" />
+                <ScalarProperty Name="envioCorreoExito" ColumnName="envioCorreoExito" />
+                <ScalarProperty Name="contenido" ColumnName="contenido" />
+                <ScalarProperty Name="asunto" ColumnName="asunto" />
+                <ScalarProperty Name="correoDestinatario" ColumnName="correoDestinatario" />
+                <ScalarProperty Name="correoEmisor" ColumnName="correoEmisor" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Propietario">
+            <EntityTypeMapping TypeName="Prestlan.Model.Propietario">
+              <MappingFragment StoreEntitySet="Propietario">
+                <ScalarProperty Name="Trabajador_Id" ColumnName="Trabajador_Id" />
+                <ScalarProperty Name="Empresa_Id" ColumnName="Empresa_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reclamaciones">
+            <EntityTypeMapping TypeName="Prestlan.Model.Reclamaciones">
+              <MappingFragment StoreEntitySet="Reclamaciones">
+                <ScalarProperty Name="fechaReclamacion" ColumnName="fechaReclamacion" />
+                <ScalarProperty Name="envioCorreoExito" ColumnName="envioCorreoExito" />
+                <ScalarProperty Name="contenido" ColumnName="contenido" />
+                <ScalarProperty Name="asunto" ColumnName="asunto" />
+                <ScalarProperty Name="correoDestinatario" ColumnName="correoDestinatario" />
+                <ScalarProperty Name="correoEmisor" ColumnName="correoEmisor" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Requisitos">
+            <EntityTypeMapping TypeName="Prestlan.Model.Requisitos">
+              <MappingFragment StoreEntitySet="Requisitos">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoDocumento">
+            <EntityTypeMapping TypeName="Prestlan.Model.TipoDocumento">
+              <MappingFragment StoreEntitySet="TipoDocumento">
+                <ScalarProperty Name="EsDocumentoDeEmpresa" ColumnName="EsDocumentoDeEmpresa" />
+                <ScalarProperty Name="NivelCriticidad" ColumnName="NivelCriticidad" />
+                <ScalarProperty Name="MultiplesPropietarios" ColumnName="MultiplesPropietarios" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoDocumento_translation">
+            <EntityTypeMapping TypeName="Prestlan.Model.TipoDocumento_translation">
+              <MappingFragment StoreEntitySet="TipoDocumento_translation">
+                <ScalarProperty Name="Plantilla" ColumnName="Plantilla" />
+                <ScalarProperty Name="TextoAyuda" ColumnName="TextoAyuda" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Idioma_codigo" ColumnName="Idioma_codigo" />
+                <ScalarProperty Name="Tipodocumento_Id" ColumnName="Tipodocumento_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoEmpresa">
+            <EntityTypeMapping TypeName="Prestlan.Model.TipoEmpresa">
+              <MappingFragment StoreEntitySet="TipoEmpresa">
+                <ScalarProperty Name="EsEmpresaPrincipal" ColumnName="EsEmpresaPrincipal" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoEmpresa_translation">
+            <EntityTypeMapping TypeName="Prestlan.Model.TipoEmpresa_translation">
+              <MappingFragment StoreEntitySet="TipoEmpresa_translation">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Idioma_codigo" ColumnName="Idioma_codigo" />
+                <ScalarProperty Name="Tipoempresa_Id" ColumnName="Tipoempresa_Id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoEstado">
+            <EntityTypeMapping TypeName="Prestlan.Model.TipoEstado">
+              <MappingFragment StoreEntitySet="TipoEstado">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoEtapa">
+            <EntityTypeMapping TypeName="Prestlan.Model.TipoEtapa">
+              <MappingFragment StoreEntitySet="TipoEtapa">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoIdentificador">
+            <EntityTypeMapping TypeName="Prestlan.Model.TipoIdentificador">
+              <MappingFragment StoreEntitySet="TipoIdentificador">
+                <ScalarProperty Name="Descripcion_null" ColumnName="Descripcion_null" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipoidentificador_translation">
+            <EntityTypeMapping TypeName="Prestlan.Model.Tipoidentificador_translation">
+              <MappingFragment StoreEntitySet="Tipoidentificador_translation">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Idioma_codigo" ColumnName="Idioma_codigo" />
+                <ScalarProperty Name="Tipoidentificador_Id" ColumnName="Tipoidentificador_Id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoTrabajador">
+            <EntityTypeMapping TypeName="Prestlan.Model.TipoTrabajador">
+              <MappingFragment StoreEntitySet="TipoTrabajador">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoTrabajador_translation">
+            <EntityTypeMapping TypeName="Prestlan.Model.TipoTrabajador_translation">
+              <MappingFragment StoreEntitySet="TipoTrabajador_translation">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Idioma_codigo" ColumnName="Idioma_codigo" />
+                <ScalarProperty Name="TipoTrabajador_Id" ColumnName="TipoTrabajador_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trabajador">
+            <EntityTypeMapping TypeName="Prestlan.Model.Trabajador">
+              <MappingFragment StoreEntitySet="Trabajador">
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="Autonomo" ColumnName="Autonomo" />
+                <ScalarProperty Name="TipoTrabajador_Id" ColumnName="TipoTrabajador_Id" />
+                <ScalarProperty Name="Empresa_Id" ColumnName="Empresa_Id" />
+                <ScalarProperty Name="TipoIdentificador_Id" ColumnName="TipoIdentificador_Id" />
+                <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
+                <ScalarProperty Name="FechaBaja" ColumnName="FechaBaja" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ValorIdentificador" ColumnName="ValorIdentificador" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="Prestlan.Model.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Empresa_Id" ColumnName="Empresa_Id" />
+                <ScalarProperty Name="idioma" ColumnName="idioma" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="Rol_Id" ColumnName="Rol_Id" />
+                <ScalarProperty Name="ultimoLogin" ColumnName="ultimoLogin" />
+                <ScalarProperty Name="fechaBaja" ColumnName="fechaBaja" />
+                <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
+                <ScalarProperty Name="clave" ColumnName="clave" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ActividadTrabajador" TypeName="Prestlan.Model.ActividadTrabajador" StoreEntitySet="ActividadTrabajador">
+            <EndProperty Name="Trabajador">
+              <ScalarProperty Name="Id" ColumnName="Trabajador_Id" />
+            </EndProperty>
+            <EndProperty Name="Actividad">
+              <ScalarProperty Name="Id" ColumnName="Actividad_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="RequisitosTipoDocumento" TypeName="Prestlan.Model.RequisitosTipoDocumento" StoreEntitySet="RequisitosTipoDocumento">
+            <EndProperty Name="TipoDocumento">
+              <ScalarProperty Name="Id" ColumnName="TipoDocumento_Id" />
+            </EndProperty>
+            <EndProperty Name="Requisitos">
+              <ScalarProperty Name="Id" ColumnName="Requisitos_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Documento">
+            <EntityTypeMapping TypeName="Prestlan.Model.Documento">
+              <MappingFragment StoreEntitySet="Documento">
+                <ScalarProperty Name="Etapa_Id" ColumnName="Etapa_Id" />
+                <ScalarProperty Name="Estado_Id" ColumnName="Estado_Id" />
+                <ScalarProperty Name="Usuario_Id" ColumnName="Usuario_Id" />
+                <ScalarProperty Name="TipoDocumento_Id" ColumnName="TipoDocumento_Id" />
+                <ScalarProperty Name="DocumentoVersion_Id" ColumnName="DocumentoVersion_Id" />
+                <ScalarProperty Name="Fichero_Id" ColumnName="Fichero_Id" />
+                <ScalarProperty Name="HashEmpleado" ColumnName="HashEmpleado" />
+                <ScalarProperty Name="Eliminado" ColumnName="Eliminado" />
+                <ScalarProperty Name="FechaActualizado" ColumnName="FechaActualizado" />
+                <ScalarProperty Name="FechaCreado" ColumnName="FechaCreado" />
+                <ScalarProperty Name="SinNotificaciones" ColumnName="SinNotificaciones" />
+                <ScalarProperty Name="SinPropietarios" ColumnName="SinPropietarios" />
+                <ScalarProperty Name="FechaCaducidad" ColumnName="FechaCaducidad" />
+                <ScalarProperty Name="Caduca" ColumnName="Caduca" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="BibliotecaDocumento" TypeName="Prestlan.Model.BibliotecaDocumento" StoreEntitySet="BibliotecaDocumento">
+            <EndProperty Name="Documento">
+              <ScalarProperty Name="Id" ColumnName="Documento_Id" />
+            </EndProperty>
+            <EndProperty Name="Biblioteca">
+              <ScalarProperty Name="Id" ColumnName="Biblioteca_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="PropietarioDocumento" TypeName="Prestlan.Model.PropietarioDocumento" StoreEntitySet="PropietarioDocumento">
+            <EndProperty Name="Propietario">
+              <ScalarProperty Name="Id" ColumnName="Propietario_Id" />
+            </EndProperty>
+            <EndProperty Name="Documento">
+              <ScalarProperty Name="Id" ColumnName="Documento_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Permiso">
+            <EntityTypeMapping TypeName="Prestlan.Model.Permiso">
+              <MappingFragment StoreEntitySet="Permiso">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol">
+            <EntityTypeMapping TypeName="Prestlan.Model.Rol">
+              <MappingFragment StoreEntitySet="Rol">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="RolPermiso" TypeName="Prestlan.Model.RolPermiso" StoreEntitySet="RolPermiso">
+            <EndProperty Name="Rol">
+              <ScalarProperty Name="Id" ColumnName="Rol_Id" />
+            </EndProperty>
+            <EndProperty Name="Permiso">
+              <ScalarProperty Name="Id" ColumnName="Permiso_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Configuracion">
+            <EntityTypeMapping TypeName="Prestlan.Model.Configuracion">
+              <MappingFragment StoreEntitySet="Configuracion">
+                <ScalarProperty Name="idioma_general" ColumnName="idioma_general" />
+                <ScalarProperty Name="nombre_empresa" ColumnName="nombre_empresa" />
+                <ScalarProperty Name="alerta_caducidad_2" ColumnName="alerta_caducidad_2" />
+                <ScalarProperty Name="alerta_caducidad_1" ColumnName="alerta_caducidad_1" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SELECT_DocumentosGenerarZIP" FunctionName="Prestlan.Model.Store.SELECT_DocumentosGenerarZIP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Prestlan.Model.SELECT_DocumentosGenerarZIP_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="nombreFS" ColumnName="nombreFS" />
+                <ScalarProperty Name="Empresa_Id" ColumnName="Empresa_Id" />
+                <ScalarProperty Name="Trabajador_Id" ColumnName="Trabajador_Id" />
+                <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+                <ScalarProperty Name="NombreTrabajador" ColumnName="NombreTrabajador" />
+                <ScalarProperty Name="NombreEmpresa" ColumnName="NombreEmpresa" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SELECT_DocumentosGenerarZIP_InfoEmpresa" FunctionName="Prestlan.Model.Store.SELECT_DocumentosGenerarZIP_InfoEmpresa">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Prestlan.Model.SELECT_DocumentosGenerarZIP_InfoEmpresa_Result">
+                <ScalarProperty Name="Empresa_Id" ColumnName="Empresa_Id" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="Requisitos_Id" ColumnName="Requisitos_Id" />
+                <ScalarProperty Name="Requisito" ColumnName="Requisito" />
+                <ScalarProperty Name="TipoDocumento_Id" ColumnName="TipoDocumento_Id" />
+                <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+                <ScalarProperty Name="Documento_Id" ColumnName="Documento_Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SELECT_DocumentosGenerarZIP_InfoTrabajadores" FunctionName="Prestlan.Model.Store.SELECT_DocumentosGenerarZIP_InfoTrabajadores">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Prestlan.Model.SELECT_DocumentosGenerarZIP_InfoTrabajadores_Result">
+                <ScalarProperty Name="Empresa_Id" ColumnName="Empresa_Id" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="Trabajador_Id" ColumnName="Trabajador_Id" />
+                <ScalarProperty Name="Trabajador" ColumnName="Trabajador" />
+                <ScalarProperty Name="Requisito_Id" ColumnName="Requisito_Id" />
+                <ScalarProperty Name="Requisito" ColumnName="Requisito" />
+                <ScalarProperty Name="TipoDocumento_Id" ColumnName="TipoDocumento_Id" />
+                <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+                <ScalarProperty Name="Documento_Id" ColumnName="Documento_Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

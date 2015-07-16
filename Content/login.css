@@ -1,0 +1,158 @@
+﻿.bgimage {
+    background-image: url(../Images/fotoportada.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica', Open Sans, Helvetica, Arial, sans-serif;
+    color: #fff;
+}
+
+.login_bloq {
+    background-image: url(../Images/fn-page.png);
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0 auto;
+    width: 300px;
+    height: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding: 1em;
+    -webkit-box-shadow: 9px 9px 12px 1px rgba(61,57,61,0.33);
+    -moz-box-shadow: 9px 9px 12px 1px rgba(61,57,61,0.33);
+    box-shadow: 9px 9px 12px 1px rgba(61,57,61,0.33);
+}
+
+input[type="text"], input[type="password"] {
+    background: #ffffff;
+    border: 1px solid #efefef;
+    width: 95%;
+    margin-bottom: 20px;
+    color: #848485;
+    font-size: 16px;
+    padding: 2.2%;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-appearance: none;
+    outline: none;
+}
+
+input[type="submit"] {
+    opacity: 1;
+    transition: opacity .3s;
+    -moz-transition: opacity .3s;
+    -webkit-transition: opacity .3s;
+    -o-transition: opacity .3s;
+    cursor: pointer;
+    background: #44b749;
+    color: #fff;
+    border: solid 2px #27d09a;
+    letter-spacing: 1px;
+    padding: 11px 16px;
+    text-transform: uppercase;
+    line-height: 20px;
+    display: inline-block;
+    text-decoration: none;
+    -webkit-appearance: button;
+    width: 100%;
+    height: 55px;
+    font-weight: bold;
+}
+
+td[align="center"] {
+    padding-bottom: 10px;
+    font-size: 14px;
+    text-align: left;
+}
+
+td[align="right"] {
+    text-align: left;
+    width: 30%;
+    vertical-align: top;
+    padding-top: 7px;
+}
+
+table tr td span {
+    text-align: justify !Important;
+}
+
+input[type="submit"]:hover {
+    background: #fff !Important;
+    color: #44b749;
+}
+
+
+
+/*Responsive */
+
+/*	MOVILES
+	=========================== */
+@media screen and (max-width: 670px) {
+
+
+    html div {
+        height: 100% !Important;
+    
+    }
+
+    figure {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    table tr td span {
+        display: none;
+    }
+
+    .login_bloq {
+        width: 95%;
+        padding: 0;
+        margin: auto;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        padding-top: 1em;
+        height: 400px;
+    }
+
+    .login_bloq tr td {
+        margin-top: 32px;
+    }
+
+    .bgimage {
+        background-image: url(../Images/fn-page.png);
+        background-repeat: repeat;
+    }
+
+    body {
+    }
+
+    input[type="submit"] {
+        opacity: 1;
+        transition: opacity .3s;
+        -moz-transition: opacity .3s;
+        -webkit-transition: opacity .3s;
+        -o-transition: opacity .3s;
+        cursor: pointer;
+        background: #44b749 !Important;
+        color: #fff;
+        border: solid 2px #27d09a;
+        letter-spacing: 1px;
+        padding: 11px 16px;
+        text-transform: uppercase;
+        line-height: 20px;
+        display: inline-block;
+        text-decoration: none;
+        -webkit-appearance: button;
+        width: 100%;
+        height: 55px;
+        font-size: 120%;
+        font-weight: bold;
+        margin-top: 43px;
+    }
+
+   
+}

@@ -1,0 +1,857 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{736CBD72-309E-437D-8395-D768B966ED96}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Prestlan</RootNamespace>
+    <AssemblyName>Prestlan</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net">
+      <HintPath>packages\BCrypt-Official.0.1.109\lib\BCrypt.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="IBD.Web, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Users\andoni\Desktop\IBD.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqKit">
+      <HintPath>packages\LinqKit.1.1.1\lib\net45\LinqKit.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\WebSites\Prestlan\Bin\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Linq.Dynamic">
+      <HintPath>..\..\Users\andoni\Desktop\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="administracion.aspx" />
+    <Content Include="adm_gestionpermisos.aspx" />
+    <Content Include="adm_gestionusuarios.aspx" />
+    <Content Include="adm_tipodocumentos.aspx" />
+    <Content Include="adm_tipoidentificadores.aspx" />
+    <Content Include="adm_tipotrabajadores.aspx" />
+    <Content Include="Ayuda.aspx" />
+    <Content Include="bin\BCrypt.Net.dll" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\IBD.Web.dll" />
+    <Content Include="bin\LinqKit.dll" />
+    <Content Include="bin\log4net.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Prestlan.dll" />
+    <Content Include="bin\Prestlan.pdb" />
+    <Content Include="bin\System.Net.Http.Formatting.dll" />
+    <Content Include="bin\System.Web.Http.dll" />
+    <Content Include="bin\System.Web.Http.WebHost.dll" />
+    <Content Include="configuracion.aspx" />
+    <Content Include="Content\bamboo.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chosen.css" />
+    <Content Include="Content\demo.css" />
+    <Content Include="Content\estilos.css" />
+    <Content Include="Content\fonts\futurab.html" />
+    <Content Include="Content\fonts\futurab.svg" />
+    <Content Include="Content\fonts\futurabc.html" />
+    <Content Include="Content\fonts\futurabc.svg" />
+    <Content Include="Content\fonts\futuralc.svg" />
+    <Content Include="Content\fonts\icomoon.svg" />
+    <Content Include="Content\fonts\icons.svg" />
+    <Content Include="Content\images\chosen-sprite%402x.png" />
+    <Content Include="Content\images\chosen-sprite.png" />
+    <Content Include="Content\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Content\jquery-ui.structure.css" />
+    <Content Include="Content\jquery-ui.structure.min.css" />
+    <Content Include="Content\jquery-ui.theme.css" />
+    <Content Include="Content\jquery-ui.theme.min.css" />
+    <Content Include="Content\jquery.multiselect.css" />
+    <Content Include="Content\login.css" />
+    <Content Include="Content\pnotify.custom.min.css" />
+    <Content Include="generar_zip.aspx" />
+    <Content Include="homologaciones.aspx" />
+    <Content Include="Images\ajax-loader.gif" />
+    <Content Include="Images\bl_admin.gif" />
+    <Content Include="Images\bl_documentos.gif" />
+    <Content Include="Images\bl_homologaciones.gif" />
+    <Content Include="Images\bl_reclamaciones.gif" />
+    <Content Include="Images\bl_subcontratas.gif" />
+    <Content Include="Images\bl_trabajadores.gif" />
+    <Content Include="Images\bl_validaciones.gif" />
+    <Content Include="Images\chevron-left.png" />
+    <Content Include="Images\chevron-right.png" />
+    <Content Include="Images\fotoportada.jpg" />
+    <Content Include="Images\logoMov.png" />
+    <Content Include="list_historico.aspx" />
+    <Content Include="list_homologaciones.aspx" />
+    <Content Include="list_notificaciones.aspx" />
+    <Content Include="list_requisitos.aspx" />
+    <Content Include="PlantillasCorreo\Notificacion_Caducado.html" />
+    <Content Include="PlantillasCorreo\Notificacion_PasoARevision.html" />
+    <Content Include="PlantillasCorreo\Notificacion_Rechazado.html" />
+    <Content Include="requisitos.aspx" />
+    <Content Include="Scripts\bamboo.0.1.js" />
+    <Content Include="Scripts\jquery-1.11.3.js" />
+    <Content Include="Scripts\jquery.ui.dialog-clickoutside.js" />
+    <Content Include="Content\mediaqueries.css" />
+    <Content Include="Content\styles-web.css" />
+    <Content Include="Content\styles.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="documentos.aspx" />
+    <Content Include="MiPerfil.aspx" />
+    <Content Include="noAutorizado.aspx" />
+    <Content Include="PlantillasCorreo\Notificacion_Reclamacion.html" />
+    <Content Include="reclamaciones.aspx" />
+    <Content Include="Scripts\chosen.jquery.js" />
+    <Content Include="Scripts\chosen.jquery.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\pnotify.custom.min.js" />
+    <Content Include="Scripts\prestlan.adm_gestionusuarios.js" />
+    <Content Include="Scripts\prestlan.documentos.js" />
+    <Content Include="Scripts\prestlan.empresa.js" />
+    <Content Include="Scripts\prestlan.generar_zip.js" />
+    <Content Include="Scripts\prestlan.gestion_menu.js" />
+    <Content Include="Scripts\prestlan.list_documentos.js" />
+    <Content Include="Scripts\prestlan.list_requisitos.js" />
+    <Content Include="Scripts\prestlan.masterpage.js" />
+    <Content Include="Scripts\prestlan.reclamaciones.js" />
+    <Content Include="Scripts\prestlan.list_trabajador.js" />
+    <Content Include="Scripts\prestlan.requisitos.js" />
+    <Content Include="Scripts\prestlan.trabajador.js" />
+    <Content Include="Scripts\prestlan.validaciones.js" />
+    <Content Include="Servicios\DocumentService.asmx" />
+    <Content Include="DynamicData\FieldTemplates\Boolean.ascx" />
+    <Content Include="DynamicData\FieldTemplates\Boolean_Edit.ascx" />
+    <Content Include="DynamicData\FieldTemplates\Children.ascx" />
+    <Content Include="DynamicData\FieldTemplates\Children_Insert.ascx" />
+    <Content Include="DynamicData\FieldTemplates\DateTime.ascx" />
+    <Content Include="DynamicData\FieldTemplates\DateTime_Edit.ascx" />
+    <Content Include="DynamicData\FieldTemplates\Decimal_Edit.ascx" />
+    <Content Include="DynamicData\FieldTemplates\EmailAddress.ascx" />
+    <Content Include="DynamicData\FieldTemplates\Enumeration.ascx" />
+    <Content Include="DynamicData\FieldTemplates\Enumeration_Edit.ascx" />
+    <Content Include="DynamicData\FieldTemplates\ForeignKey.ascx" />
+    <Content Include="DynamicData\FieldTemplates\ForeignKey_Edit.ascx" />
+    <Content Include="DynamicData\FieldTemplates\Integer_Edit.ascx" />
+    <Content Include="DynamicData\FieldTemplates\MultilineText_Edit.ascx" />
+    <Content Include="DynamicData\FieldTemplates\Text.ascx" />
+    <Content Include="DynamicData\FieldTemplates\Text_Edit.ascx" />
+    <Content Include="DynamicData\FieldTemplates\Url.ascx" />
+    <Content Include="DynamicData\FieldTemplates\Url_Edit.ascx" />
+    <Content Include="empresa.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Images\bt_alertas.png" />
+    <Content Include="Images\bt_ayuda.png" />
+    <Content Include="Images\bt_configuracion.png" />
+    <Content Include="Images\bt_logout.png" />
+    <Content Include="Images\calendar.gif" />
+    <Content Include="Images\fn-page.png" />
+    <Content Include="Images\fn-page2.png" />
+    <Content Include="Images\fn_brushed_alu.png" />
+    <Content Include="Images\fn_brushed_alu2.png" />
+    <Content Include="Images\fotolia_49583464.jpg" />
+    <Content Include="Images\fotolia_75959545.jpg" />
+    <Content Include="Images\icon_company.png" />
+    <Content Include="Images\ico_flecha_user.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\logo.svg" />
+    <Content Include="Images\logo_prestlan2.png" />
+    <Content Include="Images\menu_administracion.png" />
+    <Content Include="Images\menu_documentos.png" />
+    <Content Include="Images\menu_empleados.png" />
+    <Content Include="Images\menu_homologaciones.png" />
+    <Content Include="Images\menu_reclamaciones.png" />
+    <Content Include="Images\menu_subcontratas.png" />
+    <Content Include="Images\menu_validaciones.png" />
+    <Content Include="Images\tabla_trabajador.png" />
+    <Content Include="Content\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\images\ui-icons_222222_256x240.png" />
+    <Content Include="Images\Untitled-8.png" />
+    <Content Include="list_documentos.aspx" />
+    <Content Include="list_empresa.aspx" />
+    <Content Include="list_trabajador.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="Content\fonts\futurab.eot" />
+    <Content Include="Content\fonts\futurab.otf" />
+    <Content Include="Content\fonts\futurab.ttf" />
+    <Content Include="Content\fonts\futurab.woff" />
+    <Content Include="Content\fonts\futurabc.eot" />
+    <Content Include="Content\fonts\futurabc.otf" />
+    <Content Include="Content\fonts\futurabc.ttf" />
+    <Content Include="Content\fonts\futurabc.woff" />
+    <Content Include="Content\fonts\futuralc.eot" />
+    <Content Include="Content\fonts\futuralc.ttf" />
+    <Content Include="Content\fonts\futuralc.woff" />
+    <Content Include="Content\fonts\futuralc.woff2" />
+    <Content Include="Content\fonts\icomoon.eot" />
+    <Content Include="Content\fonts\icomoon.ttf" />
+    <Content Include="Content\fonts\icomoon.woff" />
+    <Content Include="Content\fonts\icons.eot" />
+    <Content Include="Content\fonts\icons.ttf" />
+    <Content Include="Content\fonts\icons.woff" />
+    <Content Include="MasterPage.Master" />
+    <Content Include="Servicios\TraduccionesService.asmx" />
+    <Content Include="xml\comun.es.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\comun.eu.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <EntityDeploy Include="Models\PrestlanModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PrestlanModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\PrestlanModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PrestlanModel.edmx</DependentUpon>
+      <LastGenOutput>PrestlanModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\PrestlanModel.edmx.diagram">
+      <DependentUpon>PrestlanModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\PrestlanModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PrestlanModel.edmx</DependentUpon>
+      <LastGenOutput>PrestlanModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="MasterPage_previous.Master" />
+    <Content Include="handlers\opendoc.ashx" />
+    <Content Include="bin\Prestlan.dll.config" />
+    <None Include="Properties\PublishProfiles\Popeye.pubxml" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\Popeye_prestlanroot_andoni.pubxml" />
+    <None Include="Properties\PublishProfiles\Popeye_prestlanroot_validacion.pubxml" />
+    <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.multiselect.min.js" />
+    <Content Include="Servicios\NotificacionesService.asmx" />
+    <Content Include="Servicios\UsuarioService.asmx" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.11.1.min.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="trabajador.aspx" />
+    <Content Include="validaciones.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="administracion.aspx.cs">
+      <DependentUpon>administracion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="administracion.aspx.designer.cs">
+      <DependentUpon>administracion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adm_gestionpermisos.aspx.cs">
+      <DependentUpon>adm_gestionpermisos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adm_gestionpermisos.aspx.designer.cs">
+      <DependentUpon>adm_gestionpermisos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adm_gestionusuarios.aspx.cs">
+      <DependentUpon>adm_gestionusuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adm_gestionusuarios.aspx.designer.cs">
+      <DependentUpon>adm_gestionusuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adm_tipodocumentos.aspx.cs">
+      <DependentUpon>adm_tipodocumentos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adm_tipodocumentos.aspx.designer.cs">
+      <DependentUpon>adm_tipodocumentos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adm_tipoidentificadores.aspx.cs">
+      <DependentUpon>adm_tipoidentificadores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adm_tipoidentificadores.aspx.designer.cs">
+      <DependentUpon>adm_tipoidentificadores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adm_tipotrabajadores.aspx.cs">
+      <DependentUpon>adm_tipotrabajadores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adm_tipotrabajadores.aspx.designer.cs">
+      <DependentUpon>adm_tipotrabajadores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ayuda.aspx.cs">
+      <DependentUpon>Ayuda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ayuda.aspx.designer.cs">
+      <DependentUpon>Ayuda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="configuracion.aspx.cs">
+      <DependentUpon>configuracion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="configuracion.aspx.designer.cs">
+      <DependentUpon>configuracion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="generar_zip.aspx.cs">
+      <DependentUpon>generar_zip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="generar_zip.aspx.designer.cs">
+      <DependentUpon>generar_zip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="handlers\opendoc.ashx.cs">
+      <DependentUpon>opendoc.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="homologaciones.aspx.cs">
+      <DependentUpon>homologaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="homologaciones.aspx.designer.cs">
+      <DependentUpon>homologaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="list_historico.aspx.cs">
+      <DependentUpon>list_historico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="list_historico.aspx.designer.cs">
+      <DependentUpon>list_historico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="list_homologaciones.aspx.cs">
+      <DependentUpon>list_homologaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="list_homologaciones.aspx.designer.cs">
+      <DependentUpon>list_homologaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="list_notificaciones.aspx.cs">
+      <DependentUpon>list_notificaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="list_notificaciones.aspx.designer.cs">
+      <DependentUpon>list_notificaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="list_requisitos.aspx.cs">
+      <DependentUpon>list_requisitos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="list_requisitos.aspx.designer.cs">
+      <DependentUpon>list_requisitos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MiPerfil.aspx.cs">
+      <DependentUpon>MiPerfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MiPerfil.aspx.designer.cs">
+      <DependentUpon>MiPerfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Actividad.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Actividad_translation.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Biblioteca.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Configuracion.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Documento.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Empresa.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Fichero.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Idiomas.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Log.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MovimientosDeDocumento.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Notificaciones.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Permiso.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Propietario.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Reclamaciones.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Requisitos.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Rol.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SELECT_DocumentosGenerarZIP_InfoEmpresa_Result.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SELECT_DocumentosGenerarZIP_InfoTrabajadores_Result.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SELECT_DocumentosGenerarZIP_Result.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoDocumento.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoDocumento_translation.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoEmpresa.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoEmpresa_translation.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoEstado.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoEtapa.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoIdentificador.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tipoidentificador_translation.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoTrabajador.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoTrabajador_translation.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Trabajador.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuario.cs">
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="noAutorizado.aspx.cs">
+      <DependentUpon>noAutorizado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="noAutorizado.aspx.designer.cs">
+      <DependentUpon>noAutorizado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reclamaciones.aspx.cs">
+      <DependentUpon>reclamaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reclamaciones.aspx.designer.cs">
+      <DependentUpon>reclamaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="requisitos.aspx.cs">
+      <DependentUpon>requisitos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="requisitos.aspx.designer.cs">
+      <DependentUpon>requisitos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\DocumentService.asmx.cs">
+      <DependentUpon>DocumentService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MasterPage_previous.Master.cs">
+      <DependentUpon>MasterPage_previous.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage_previous.Master.designer.cs">
+      <DependentUpon>MasterPage_previous.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ListasAuxiliares.cs" />
+    <Compile Include="Servicios\NotificacionesService.asmx.cs">
+      <DependentUpon>NotificacionesService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Servicios\TraduccionesService.asmx.cs">
+      <DependentUpon>TraduccionesService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Servicios\UsuarioService.asmx.cs">
+      <DependentUpon>UsuarioService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utilidades\Correo.cs" />
+    <Compile Include="Utilidades\Errores.cs" />
+    <Compile Include="Utilidades\GridViewGroup.cs" />
+    <Compile Include="Utilidades\GridViewGroupList.cs" />
+    <Compile Include="Utilidades\GridViewHelper.cs" />
+    <Compile Include="Utilidades\GridViewSummary.cs" />
+    <Compile Include="Utilidades\GridViewSummaryList.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="documentos.aspx.cs">
+      <DependentUpon>documentos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="documentos.aspx.designer.cs">
+      <DependentUpon>documentos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Boolean.ascx.cs">
+      <DependentUpon>Boolean.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Boolean.ascx.designer.cs">
+      <DependentUpon>Boolean.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Boolean_Edit.ascx.cs">
+      <DependentUpon>Boolean_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Boolean_Edit.ascx.designer.cs">
+      <DependentUpon>Boolean_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Children.ascx.cs">
+      <DependentUpon>Children.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Children.ascx.designer.cs">
+      <DependentUpon>Children.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Children_Insert.ascx.cs">
+      <DependentUpon>Children_Insert.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Children_Insert.ascx.designer.cs">
+      <DependentUpon>Children_Insert.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\DateTime.ascx.cs">
+      <DependentUpon>DateTime.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\DateTime.ascx.designer.cs">
+      <DependentUpon>DateTime.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\DateTime_Edit.ascx.cs">
+      <DependentUpon>DateTime_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\DateTime_Edit.ascx.designer.cs">
+      <DependentUpon>DateTime_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Decimal_Edit.ascx.cs">
+      <DependentUpon>Decimal_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Decimal_Edit.ascx.designer.cs">
+      <DependentUpon>Decimal_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\EmailAddress.ascx.cs">
+      <DependentUpon>EmailAddress.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\EmailAddress.ascx.designer.cs">
+      <DependentUpon>EmailAddress.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Enumeration.ascx.cs">
+      <DependentUpon>Enumeration.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Enumeration.ascx.designer.cs">
+      <DependentUpon>Enumeration.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Enumeration_Edit.ascx.cs">
+      <DependentUpon>Enumeration_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Enumeration_Edit.ascx.designer.cs">
+      <DependentUpon>Enumeration_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\ForeignKey.ascx.cs">
+      <DependentUpon>ForeignKey.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\ForeignKey.ascx.designer.cs">
+      <DependentUpon>ForeignKey.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\ForeignKey_Edit.ascx.cs">
+      <DependentUpon>ForeignKey_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\ForeignKey_Edit.ascx.designer.cs">
+      <DependentUpon>ForeignKey_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Integer_Edit.ascx.cs">
+      <DependentUpon>Integer_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Integer_Edit.ascx.designer.cs">
+      <DependentUpon>Integer_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\MultilineText_Edit.ascx.cs">
+      <DependentUpon>MultilineText_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\MultilineText_Edit.ascx.designer.cs">
+      <DependentUpon>MultilineText_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Text.ascx.cs">
+      <DependentUpon>Text.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Text.ascx.designer.cs">
+      <DependentUpon>Text.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Text_Edit.ascx.cs">
+      <DependentUpon>Text_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Text_Edit.ascx.designer.cs">
+      <DependentUpon>Text_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Url.ascx.cs">
+      <DependentUpon>Url.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Url.ascx.designer.cs">
+      <DependentUpon>Url.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Url_Edit.ascx.cs">
+      <DependentUpon>Url_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Url_Edit.ascx.designer.cs">
+      <DependentUpon>Url_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="empresa.aspx.cs">
+      <DependentUpon>empresa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="empresa.aspx.designer.cs">
+      <DependentUpon>empresa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="list_documentos.aspx.cs">
+      <DependentUpon>list_documentos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="list_documentos.aspx.designer.cs">
+      <DependentUpon>list_documentos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="list_empresa.aspx.cs">
+      <DependentUpon>list_empresa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="list_empresa.aspx.designer.cs">
+      <DependentUpon>list_empresa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="list_trabajador.aspx.cs">
+      <DependentUpon>list_trabajador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="list_trabajador.aspx.designer.cs">
+      <DependentUpon>list_trabajador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PrestlanModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrestlanModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PrestlanModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrestlanModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PrestlanModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrestlanModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="trabajador.aspx.cs">
+      <DependentUpon>trabajador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="trabajador.aspx.designer.cs">
+      <DependentUpon>trabajador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilidades\Autentificar.cs" />
+    <Compile Include="Utilidades\Hashing.cs" />
+    <Compile Include="Utilidades\Notificaciones.cs" />
+    <Compile Include="Utilidades\OperacionesDocumentos.cs" />
+    <Compile Include="Utilidades\Utilidades.cs" />
+    <Compile Include="validaciones.aspx.cs">
+      <DependentUpon>validaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="validaciones.aspx.designer.cs">
+      <DependentUpon>validaciones.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="DynamicData\EntityTemplates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60814</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:60808/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:60808/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

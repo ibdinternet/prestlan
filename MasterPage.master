@@ -1,0 +1,314 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.Master.cs" Inherits="Prestlan.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Prestlan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!-- CSS -->
+    <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
+    <link type="text/css" rel="stylesheet" href="<%=ResolveUrl("~/Content/jquery.multiselect.css")%>" />
+    <link type="text/css" rel="Stylesheet" href="<%=ResolveUrl("~/Content/jquery-ui.css")%>" />
+    <link type="text/css" rel="stylesheet" href="<%=ResolveUrl("~/Content/styles-web.css")%>" />
+    <link type="text/css" rel="stylesheet" href="<%=ResolveUrl("~/Content/chosen.css")%>" />
+    <link type="text/css" rel="stylesheet" href="<%=ResolveUrl("~/Content/bamboo.css")%>" />
+    <link type="text/css" rel="stylesheet" href="<%=ResolveUrl("~/Content/pnotify.custom.min.css")%>" />
+
+    <!-- JS -->
+    <script type="text/javascript" src="<%=ResolveUrl("~/Scripts/jquery-1.11.1.min.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~/Scripts/jquery-ui.min.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~/Scripts/chosen.jquery.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~/Scripts/jquery.ui.dialog-clickoutside.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~/Scripts/jquery.multiselect.min.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~/Scripts/pnotify.custom.min.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~/Scripts/prestlan.gestion_menu.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~/Scripts/prestlan.masterpage.js")%>"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <!--Código seguimiento Prestlan -->
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-62125741-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+</head>
+<body id="body1" runat="server">
+
+    <form id="form1" runat="server">
+
+        <div id="wrapper_notificaciones" style="visibility: hidden">
+
+            <div class="full" id="div1">
+                <div id='box_header'>
+                    <div id='noti_text'><%= IBD.Web.Traduce.getTG("notificaciones") %></div>
+                </div>
+
+                <div id='noti_list'>
+
+
+                    <%--<div class='noti_item'>
+                        <div class='noti_id'>1</div>
+                        ESTO ES UNA PRUEBA 1
+                        <span class="icon-cancel-circle"></span>
+                    </div>          --%>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="divDialogFormSearch" style="visibility: hidden;">
+
+            <fieldset>
+                <label for="Empleados"><%= IBD.Web.Traduce.getTG("empleados") %></label>
+                <asp:ListBox ID="lbEmpleados" runat="server" SelectionMode="Multiple"
+                    SelectMethod="GetTrabajadores"
+                    DataTextField="Nombre"
+                    DataValueField="Id"></asp:ListBox>
+                <br />
+                <br />
+                <label for="Actividad"><%= IBD.Web.Traduce.getTG("actividad") %></label>
+                <asp:ListBox ID="lbActividades" runat="server" SelectionMode="Multiple"
+                    SelectMethod="GetActividades"
+                    DataTextField="Descripcion"
+                    DataValueField="Id"></asp:ListBox>
+                <br />
+                <br />
+                <label for="Empresa"><%= IBD.Web.Traduce.getTG("empresa") %></label>
+                <asp:ListBox ID="lbEmpresas" runat="server" SelectionMode="Multiple"
+                    SelectMethod="GetEmpresas"
+                    DataTextField="Nombre"
+                    DataValueField="Id"></asp:ListBox>
+                <br />
+                <br />
+                <label for="tipoDocumento"><%= IBD.Web.Traduce.getTG("tipodocumento") %></label>
+                <asp:ListBox ID="lbTipoDocumentos" runat="server" SelectionMode="Multiple"
+                    SelectMethod="GetTipoDocumentos"
+                    DataTextField="Descripcion"
+                    DataValueField="Id"></asp:ListBox>
+
+                <input type="submit" tabindex="-1" style="position: absolute; top: -1000px; display: block;" autofocus="autofocus" />
+            </fieldset>
+
+        </div>
+        <!-- navegacion -->
+        <nav id="main-nav" class="navigation overflow">
+            <ul>
+
+                <li id="li_documentos" runat="server"><a href="#"><span class="icon-docs"></span>
+                    <br />
+                    <%= IBD.Web.Traduce.getTG("documentos") %></a>
+                    <ul>
+                        <li><a href="documentos.aspx"><span class="icon-plus"></span><%= IBD.Web.Traduce.getTG("añadir") %></a> </li>
+
+                        <li><a href="list_documentos.aspx"><span class="icon-menu2"></span><%= IBD.Web.Traduce.getTG("listar") %></a></li>
+                    </ul>
+                </li>
+
+                <li id="li_trabajadores" runat="server"><a href="#"><span class="icon-user"></span>
+                    <br />
+                    <%= IBD.Web.Traduce.getTG("trabajadores") %></a>
+                    <ul>
+                        <li><a href="trabajador.aspx"><span class="icon-plus"></span><%= IBD.Web.Traduce.getTG("añadir") %></a> </li>
+                        <li><a href="list_trabajador.aspx"><span class="icon-menu2"></span><%= IBD.Web.Traduce.getTG("listar") %></a></li>
+                    </ul>
+
+                </li>
+                <li id="li_edicionEmpresa" runat="server">
+                    <asp:LinkButton runat="server" ID="linkEdicionEmpresaMenu">
+                        <span class="icon-office"></span>
+                        <br />
+                        <%= IBD.Web.Traduce.getTG("empresa") %>
+                    </asp:LinkButton>
+                </li>
+                <li id="li_subcontratas" runat="server"><a href="#"><span class="icon-office"></span>
+                    <br />
+                    <%= IBD.Web.Traduce.getTG("subcontratas") %></a>
+                    <ul>
+                        <li><a href="empresa.aspx"><span class="icon-plus"></span><%= IBD.Web.Traduce.getTG("añadir") %></a> </li>
+                        <li><a href="list_empresa.aspx"><span class="icon-menu2"></span><%= IBD.Web.Traduce.getTG("listar") %></a> </li>
+
+                    </ul>
+                </li>
+                <li id="li_homologaciones" runat="server"><a href="#"><span class="icon-homologa"></span>
+                    <br />
+                    <%= IBD.Web.Traduce.getTG("homologaciones") %></a>
+                    <ul>
+                        <li><a href="homologaciones.aspx"><span class="icon-plus"></span><%= IBD.Web.Traduce.getTG("añadir") %></a> </li>
+                        <li><a href="list_homologaciones.aspx"><span class="icon-menu2"></span><%= IBD.Web.Traduce.getTG("listar") %></a></li>
+                    </ul>
+                </li>
+                <li id="li_requisitos" runat="server"><a href="#"><span class="icon-requisitos"></span>
+                    <br />
+                    <%= IBD.Web.Traduce.getTG("requisitos") %></a>
+                    <ul>
+                        <li><a href="requisitos.aspx"><span class="icon-plus"></span><%= IBD.Web.Traduce.getTG("añadir") %></a> </li>
+                        <li><a href="list_requisitos.aspx"><span class="icon-menu2"></span><%= IBD.Web.Traduce.getTG("listar") %></a></li>
+                    </ul>
+                </li>
+                <li id="li_generar_zip" runat="server"><a href="generar_zip.aspx"><span class="icon-download3"></span>
+                    <br />
+                    <%= IBD.Web.Traduce.getTG("generarzip") %></a></li>
+                <li id="li_validaciones" runat="server"><a href="validaciones.aspx"><span class="icon-valida"></span>
+                    <br />
+                    <%= IBD.Web.Traduce.getTG("validaciones") %></a></li>
+                <li id="li_reclamaciones" runat="server"><a href="reclamaciones.aspx"><span class="icon-reclama"></span>
+                    <br />
+                    <%= IBD.Web.Traduce.getTG("reclamaciones") %></a></li>
+                <li id="li_administracion" runat="server"><a href="#"><span class="icon-adm"></span>
+                    <br />
+                    <%= IBD.Web.Traduce.getTG("administracion") %></a>
+                    <ul>
+                        <li><a href="adm_tipodocumentos.aspx"><span class="icon-plus"></span><%= IBD.Web.Traduce.getTG("documentos") %></a></li>
+                        <li><a href="adm_tipoidentificadores.aspx"><span class="icon-plus"></span><%= IBD.Web.Traduce.getTG("identificador") %></a></li>
+                        <%--<li><a href="adm_tipotrabajadores.aspx"><span class="icon-plus"></span><%= IBD.Web.Traduce.getTG("trabajador") %></a></li>--%>
+                        <li><a href="adm_gestionusuarios.aspx"><span class="icon-plus"></span><%= IBD.Web.Traduce.getTG("usuarios") %></a></li>
+                        <li><a href="adm_gestionpermisos.aspx"><span class="icon-plus"></span><%= IBD.Web.Traduce.getTG("permisos") %></a></li>
+                    </ul>
+                </li>
+
+                <li class="tooltips toolnav"><a href="Ayuda.aspx">
+                    <span class="icon-ayuda"></span>
+                    <br />
+                    <%= IBD.Web.Traduce.getTG("ayuda") %>
+                               
+                </a></li>
+                <li class="tooltips toolnav"><a href="Configuracion.aspx">
+                    <span class="icon-config"></span>
+                    <br />
+                    <%= IBD.Web.Traduce.getTG("configuracion") %>
+                               
+                </a></li>
+
+                <li class="tooltips toolnav">
+                    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="bLogout_Click" CssClass="icon-power"></asp:LinkButton>
+                </li>
+
+            </ul>
+        </nav>
+
+        <div id="container">
+
+            <header class="primary">
+                <span class="open icon">&#9776;</span>
+
+                <div class="box">
+
+                    <a href="<%=ResolveUrl("~/")%>">
+                        <figure class="logo">
+                            <img src="images/logo.png" alt="Aplicaci&oacute;n Prestlan, aplicaci&oacute;n para la gesti&oacute;n  documental de actividades empresariales gestinado por prestadoras de servicios" />
+
+                        </figure>
+                    </a>
+
+
+
+                    <div class="upgrade">
+                        <!-- <input type="button" class="upgrade" value="Upgrade" /> -->
+                    </div>
+
+                    <!-- ************* OCULTADO (pasa a la pagina de documentos) **************-->
+                    <div class="buscador" id="show_buscador" style="display:none;">
+                        <asp:TextBox ID="tbBuscarDocumentos" CssClass="buscador" runat="server" />
+                    </div>
+                    <!-- ********************************************************************** -->
+                    <div class="iconos">
+                        <ul>
+                            <li class="tooltips notifi">
+                                <a href="#" id="show_notificaciones">
+                                    <span class="icon-alerta"><span class="burbuja" id="contador_notificaciones"></span></span>
+                                </a>
+                            </li>
+                            <!-- Muestra las notificaciones en el cuerpo de la pagina en vez de en el popup (para tablet/movil) -->
+                            <li class="tooltips notifi">
+                                <asp:HyperLink runat="server" NavigateUrl="~/list_notificaciones.aspx" >
+                                    <span class="icon-alerta"><span class="burbuja" id="contador_notificaciones2"></span></span>
+                                </asp:HyperLink>
+                            </li>
+                            <li class="tooltips"><a href="Ayuda.aspx">
+                                <span class="icon-ayuda"></span>
+                            </a></li>
+                            <li class="tooltips"><a href="Configuracion.aspx">
+                                <span class="icon-config"></span>
+                            </a></li>
+                        </ul>
+                    </div>
+                    <div class="user">
+                        <a href="MiPerfil.aspx">
+                            <asp:Label ID="lblNombreUsuario" Text="" runat="server" /><img src="images/ico_flecha_user.png" /></a>
+                    </div>
+                    <div class="logout">
+
+                        <ul>
+                            <li class="tooltips">
+                                <asp:LinkButton ID="bLogout" CausesValidation="false" runat="server" OnClick="bLogout_Click" CssClass="icon-power"></asp:LinkButton>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </header>
+
+            <section id="scroller" class="overflow">
+                <div id="content">
+
+                    <!-- Content goes in here -->
+
+
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+
+                    <!-- Content ends -->
+
+                </div>
+            </section>
+
+        </div>
+
+
+
+        <script type="text/javascript" src="<%=ResolveUrl("~/Scripts/bamboo.0.1.js")%>"></script>
+        <script>
+            var site = new Bamboo();
+        </script>
+
+
+
+    </form>
+
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
